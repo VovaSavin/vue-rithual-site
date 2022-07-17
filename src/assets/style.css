@@ -1,0 +1,34 @@
+.c-black {
+    color: black;
+}
+
+.text_write {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+}
+
+.header-main {
+    background: linear-gradient(rgb(158, 158, 158), rgb(253, 221, 226));
+}
+
+.footer-main {
+    background: linear-gradient(rgb(253, 221, 226), rgb(158, 158, 158));
+}
+
+.bg_gray_gradient {
+    background: linear-gradient(rgb(253, 253, 253), rgb(196, 195, 195));
+}
+
+.name_page {
+    text-transform: uppercase;
+}
+
+.end_side {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.col_custom {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
