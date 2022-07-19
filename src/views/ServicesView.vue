@@ -50,30 +50,38 @@
     </header>
     <hr />
     <div class="w-100">
-      <div class="mb-3 name_page">
-        <b>
-          {{ namePage }}
-        </b>
-      </div>
-      <div
-        v-for="service in rithualServices"
-        :key="service.id"
-        class="col mb-2"
-      >
-        <div>
-          <img
-            :src="service.picture"
-            :alt="service.name"
-            width="205"
-            height="205"
-          />
+      <div class="row row justify-content-end mb-3 name_page">
+        <div class="col-6">
+          <b>
+            {{ namePage }}
+          </b>
         </div>
-        <div>
-          <a href="#" class="a_non_style text_write">
-            <b>
-              {{ service.name }}
-            </b>
-          </a>
+        <div class="col-3">
+          <SwitchButton :innerRowOrCol="rowOrCol" />
+        </div>
+      </div>
+      <div :class="{ row: !rowOrCol, 'my-col': rowOrCol }">
+        <div
+          v-for="service in rithualServices"
+          :key="service.id"
+          class="col-4 mb-4"
+          :class="{ 'm-my-auto': rowOrCol }"
+        >
+          <div>
+            <img
+              :src="service.picture"
+              :alt="service.name"
+              width="255"
+              height="255"
+            />
+          </div>
+          <div>
+            <a href="#" class="a_non_style text_write">
+              <b>
+                {{ service.name }}
+              </b>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -85,11 +93,13 @@
 // @ is an alias to /src
 import { navigator } from "@/assets/data";
 import FooterRithual from "@/components/FooterRithual.vue";
+import SwitchButton from "@/components/SwitchButton.vue";
 
 export default {
   name: "ServicesView",
   components: {
     FooterRithual,
+    SwitchButton,
   },
   data() {
     return {
@@ -100,6 +110,7 @@ export default {
       show_2: false,
       navValue: 1,
       namePage: null,
+      rowOrCol: null,
     };
   },
   created() {
@@ -149,6 +160,9 @@ export default {
     },
     getNamePage() {
       this.namePage = this.navigator[this.navValue].text;
+    },
+    changeDisplay() {
+      // Change display elements (list or column)
     },
   },
 };

@@ -57,7 +57,7 @@
       </div>
       <div v-for="good in rithualGoods" :key="good.id" class="col mb-2">
         <div>
-          <img :src="good.picture" :alt="good.name" width="205" height="205" />
+          <img :src="good.picture" :alt="good.name" width="255" height="255" />
         </div>
         <div>
           <a href="#" class="a_non_style text_write">

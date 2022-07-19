@@ -50,21 +50,32 @@
     </header>
     <hr />
     <div class="w-100">
-      <div class="mb-3 name_page">
+      <div class="mb-5 name_page">
         <b>
           {{ namePage }}
         </b>
       </div>
-      <div v-for="w in we" :key="w.id">
-        <div class="mb-3">
-          <b>
-            {{ w.name }}
-          </b>
+      <div v-for="w in we" :key="w.id" class="col_custom">
+        <div
+          class="col-6 l-text width-45"
+          :class="{ 'align-self-end ': w.id % 2 == 0 }"
+        >
+          <div class="mb-3">
+            <b>
+              {{ w.name }}
+            </b>
+          </div>
+          <p
+            class="lead text_write"
+            :class="{
+              'f-italic': w.font === 'К',
+              'f-bold': w.font === 'Ж',
+              'f-bold f-italic': w.font === 'ЖК',
+            }"
+          >
+            {{ w.description }}
+          </p>
         </div>
-        <p class="text_write">
-          {{ w.description }}
-        </p>
-        <hr />
       </div>
     </div>
     <FooterRithual />

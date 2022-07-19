@@ -3,7 +3,19 @@
 }
 
 .text_write {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+    font-size: 16px;
+}
+
+.f-italic {
+    font-style: italic !important;
+}
+
+.f-bold {
+    font-weight: bolder !important;
+}
+
+.l-text {
+    text-align: left !important;
 }
 
 .header-main {
@@ -11,7 +23,7 @@
 }
 
 .footer-main {
-    background: linear-gradient(rgb(253, 221, 226), rgb(158, 158, 158));
+    background: linear-gradient(rgb(233, 226, 227), rgb(185, 176, 167));
 }
 
 .bg_gray_gradient {
@@ -31,4 +43,27 @@
     display: flex;
     flex-direction: column;
     text-align: left;
+}
+
+.width-45 {
+    width: 45%;
+    margin-left: 2rem;
+}
+
+.width-min {
+    width: max-content !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.m-my-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.my-col {
+    display: flex;
+    flex-direction: column;
 }
