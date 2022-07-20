@@ -6,6 +6,7 @@
       role="switch"
       id="flexSwitchCheckDefault"
       v-model="myRowOrCol"
+      @click="$emit('checked')"
     />
     <span v-if="myRowOrCol" class="small lh-125"> Колона </span>
     <span v-else class="small lh-125"> Ряд </span>

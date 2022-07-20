@@ -57,7 +57,10 @@
           </b>
         </div>
         <div class="col-3">
-          <SwitchButton :innerRowOrCol="rowOrCol" />
+          <SwitchButton
+            :innerRowOrCol="rowOrCol"
+            @checked="rowOrCol = !rowOrCol"
+          />
         </div>
       </div>
       <div :class="{ row: !rowOrCol, 'my-col': rowOrCol }">
@@ -71,7 +74,7 @@
             <img
               :src="service.picture"
               :alt="service.name"
-              width="255"
+              width="355"
               height="255"
             />
           </div>

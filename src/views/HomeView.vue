@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="h-max">
     <header class="d-flex justify-content-center py-3 header-main">
       <ul class="nav">
         <li class="nav-item m-2" v-for="nav in navigator" :key="nav.value">
@@ -51,7 +51,21 @@
     <hr />
     <div class="w-100">
       <div v-for="img in mainImg" :key="img.id">
-        <img :src="img.image" alt="image" class="w-100" />
+        <div>
+          <img :src="img.image" alt="image" class="w-100" />
+        </div>
+        <div v-if="img.display_on" class="container mt-3">
+          <p
+            class="smalingl-text"
+            :class="{
+              'f-italic': img.font === 'К',
+              'f-bold': img.font === 'Ж',
+              'f-bold f-italic': img.font === 'ЖК',
+            }"
+          >
+            {{ img.description_site }}
+          </p>
+        </div>
       </div>
     </div>
     <FooterRithual />

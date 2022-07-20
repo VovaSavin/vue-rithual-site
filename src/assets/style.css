@@ -1,9 +1,17 @@
+.h-max {
+    min-height: 100%;
+}
+
 .c-black {
     color: black;
 }
 
 .text_write {
     font-size: 16px;
+}
+
+.smalingl-text {
+    font-size: 14px;
 }
 
 .f-italic {
@@ -19,11 +27,11 @@
 }
 
 .header-main {
-    background: linear-gradient(rgb(158, 158, 158), rgb(253, 221, 226));
+    background: linear-gradient(rgb(211, 203, 195), rgb(233, 226, 227));
 }
 
 .footer-main {
-    background: linear-gradient(rgb(233, 226, 227), rgb(185, 176, 167));
+    background: linear-gradient(rgb(233, 226, 227), rgb(211, 203, 195));
 }
 
 .bg_gray_gradient {
