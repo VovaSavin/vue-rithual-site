@@ -32,7 +32,11 @@
             />
           </div>
           <div>
-            <a href="#" class="a_non_style text_write">
+            <a
+              href="#"
+              @click="goToDetailService(good.id)"
+              class="a_non_style text_write"
+            >
               <b>
                 {{ good.name }}
               </b>
@@ -88,6 +92,15 @@ export default {
     },
     getNamePage() {
       this.namePage = this.navigator[this.navValue].text;
+    },
+    goToDetailService(id) {
+      // Go to detail page for services
+      if (this.$route.name != "Detail") {
+        this.$router.push({ name: "Detail", params: { id: id } });
+      } else if (this.$route.name == "Detail") {
+        this.$router.push({ name: "home" });
+        this.$router.push({ name: "Detail", params: { id: id } });
+      }
     },
   },
 };

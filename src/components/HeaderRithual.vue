@@ -24,7 +24,12 @@
           >
             <div>
               <div v-for="serv in rithualServices" :key="serv.id" class="m-1">
-                <a href="#" v-if="show" class="a_non_style">
+                <a
+                  href="#"
+                  @click="goToDetailService(serv.id)"
+                  v-if="show"
+                  class="a_non_style"
+                >
                   {{ serv.name }}
                 </a>
               </div>
@@ -39,7 +44,12 @@
           >
             <div>
               <div v-for="goods in rithualGoods" :key="goods.id" class="m-1">
-                <a href="#" v-if="show_2" class="a_non_style">
+                <a
+                  href="#"
+                  @click="goToDetailService(goods.id)"
+                  v-if="show_2"
+                  class="a_non_style"
+                >
                   {{ goods.name }}
                 </a>
               </div>
@@ -70,6 +80,7 @@ export default {
       show: false,
       show_2: false,
       valueNavigate: this.valueNav,
+      myId: this.newId,
     };
   },
   created() {
@@ -115,6 +126,15 @@ export default {
     goToPage(links, navId, nValue) {
       if (navId != nValue) {
         this.$router.push({ name: links });
+      }
+    },
+    goToDetailService(id) {
+      // Go to detail page for services
+      if (this.$route.name != "Detail") {
+        this.$router.push({ name: "Detail", params: { id: id } });
+      } else if (this.$route.name == "Detail") {
+        this.$router.push({ name: "home" });
+        this.$router.push({ name: "Detail", params: { id: id } });
       }
     },
   },
