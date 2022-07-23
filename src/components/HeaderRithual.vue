@@ -26,7 +26,7 @@
               <div v-for="serv in rithualServices" :key="serv.id" class="m-1">
                 <a
                   href="#"
-                  @click="goToDetailService(serv.id)"
+                  @click="getDataAndGoTo(serv.id, 'service')"
                   v-if="show"
                   class="a_non_style"
                 >
@@ -46,7 +46,7 @@
               <div v-for="goods in rithualGoods" :key="goods.id" class="m-1">
                 <a
                   href="#"
-                  @click="goToDetailService(goods.id)"
+                  @click="getDataAndGoTo(goods.id, 'goods')"
                   v-if="show_2"
                   class="a_non_style"
                 >
@@ -81,6 +81,7 @@ export default {
       show_2: false,
       valueNavigate: this.valueNav,
       myId: this.newId,
+      onePositon: null,
     };
   },
   created() {
@@ -128,14 +129,45 @@ export default {
         this.$router.push({ name: links });
       }
     },
-    goToDetailService(id) {
-      // Go to detail page for services
+    async getDetailData(id, vName) {
+      // Get data about service or goods
+      if (vName == "service") {
+        this.onePositon = await fetch(
+          `${this.$store.getters.getServerUrl}/rith_services/${id}`
+        )
+          .then((response) => response.json())
+          .catch(function (error) {
+            console.log(error);
+          });
+      } else if (vName == "goods") {
+        this.onePositon = await fetch(
+          `${this.$store.getters.getServerUrl}/rith_goods/${id}`
+        )
+          .then((response) => response.json())
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    },
+    async goToDetailService(id, parameter, vName) {
+      // Go to detail page
       if (this.$route.name != "Detail") {
-        this.$router.push({ name: "Detail", params: { id: id } });
+        this.$router.push({
+          name: "Detail",
+          params: { id: id, dataDetail: parameter, vueName: vName },
+        });
       } else if (this.$route.name == "Detail") {
         this.$router.push({ name: "home" });
-        this.$router.push({ name: "Detail", params: { id: id } });
+        this.$router.push({
+          name: "Detail",
+          params: { id: id, dataDetail: parameter, vueName: vName },
+        });
       }
+    },
+    async getDataAndGoTo(id, vName) {
+      this.getDetailData(id, vName).then(() =>
+        this.goToDetailService(id, this.onePositon, vName)
+      );
     },
   },
 };
