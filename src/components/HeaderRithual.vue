@@ -151,16 +151,18 @@ export default {
     },
     async goToDetailService(id, parameter, vName) {
       // Go to detail page
+      localStorage.setItem("detail", JSON.stringify(parameter));
+      let temp = localStorage.getItem("detail");
       if (this.$route.name != "Detail") {
         this.$router.push({
           name: "Detail",
-          params: { id: id, dataDetail: parameter, vueName: vName },
+          params: { id: id, dataDetail: JSON.parse(temp), vueName: vName },
         });
       } else if (this.$route.name == "Detail") {
         this.$router.push({ name: "home" });
         this.$router.push({
           name: "Detail",
-          params: { id: id, dataDetail: parameter, vueName: vName },
+          params: { id: id, dataDetail: JSON.parse(temp), vueName: vName },
         });
       }
     },
