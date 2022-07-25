@@ -34,7 +34,7 @@
           <div>
             <a
               href="#"
-              @click="goToDetailService(good.id)"
+              @click="getDataAndGoTo(good.id, 'goods')"
               class="a_non_style text_write"
             >
               <b>
@@ -70,6 +70,7 @@ export default {
       navValue: 2,
       namePage: null,
       rowOrCol: null,
+      onePositon: null,
     };
   },
   created() {
@@ -93,14 +94,48 @@ export default {
     getNamePage() {
       this.namePage = this.navigator[this.navValue].text;
     },
-    goToDetailService(id) {
-      // Go to detail page for services
+    async getDetailData(id, vName) {
+      // Get data about service or goods
+      if (vName == "service") {
+        this.onePositon = await fetch(
+          `${this.$store.getters.getServerUrl}/rith_services/${id}`
+        )
+          .then((response) => response.json())
+          .catch(function (error) {
+            console.log(error);
+          });
+      } else if (vName == "goods") {
+        this.onePositon = await fetch(
+          `${this.$store.getters.getServerUrl}/rith_goods/${id}`
+        )
+          .then((response) => response.json())
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    },
+    async goToDetailService(id, parameter, vName) {
+      // Go to detail page
+      localStorage.removeItem("detail");
+      localStorage.setItem("detail", JSON.stringify(parameter));
+      let temp = localStorage.getItem("detail");
       if (this.$route.name != "Detail") {
-        this.$router.push({ name: "Detail", params: { id: id } });
+        this.$router.push({
+          name: "Detail",
+          params: { id: id, dataDetail: JSON.parse(temp), vueName: vName },
+        });
       } else if (this.$route.name == "Detail") {
         this.$router.push({ name: "home" });
-        this.$router.push({ name: "Detail", params: { id: id } });
+        this.$router.push({
+          name: "Detail",
+          params: { id: id, dataDetail: JSON.parse(temp), vueName: vName },
+        });
       }
+    },
+    async getDataAndGoTo(id, vName) {
+      this.getDetailData(id, vName).then(() =>
+        this.goToDetailService(id, this.onePositon, vName)
+      );
     },
   },
 };
