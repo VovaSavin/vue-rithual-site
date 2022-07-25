@@ -2,23 +2,30 @@
   <div class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
     <hr />
-    <div>
-      {{ onePositon.name }}
-    </div>
+    <!-- <div>
+      dataDetail
+      {{ dataDetail }}
+      <hr />
+      onePositon
+      {{ onePositon }}
+      <hr />
+      localOnePosition
+      {{ localOnePosition }}
+    </div> -->
     <div class="w-100">
       <div class="mb-5 name_page f-bold">
-        {{ dataDetail.name }}
+        {{ chooseData().name }}
       </div>
       <div class="m-3">
         <img
-          :src="dataDetail.picture"
-          :alt="dataDetail.picture"
+          :src="chooseData().picture"
+          :alt="chooseData().picture"
           class="w-100"
         />
       </div>
       <div class="m-3">
         <p class="f-italic">
-          {{ dataDetail.description }}
+          {{ chooseData().description }}
         </p>
       </div>
     </div>
@@ -47,14 +54,27 @@ export default {
       navValue: null,
       namePage: null,
       onePositon: this.dataDetail,
+      localOnePosition: localStorage.getItem("detail"),
     };
   },
-  created() {},
+  created() {
+    this.runApp();
+  },
   methods: {
     runApp() {
       // Run
+      this.onePositon = JSON.parse(this.localOnePosition);
+    },
+    chooseData() {
+      // Choose getter detatil data for goods or service
+      if (this.dataDetail) {
+        return this.dataDetail;
+      } else {
+        return this.onePositon;
+      }
     },
   },
+  computed: {},
 };
 </script>
 

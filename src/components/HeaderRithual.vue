@@ -151,6 +151,7 @@ export default {
     },
     async goToDetailService(id, parameter, vName) {
       // Go to detail page
+      localStorage.removeItem("detail");
       localStorage.setItem("detail", JSON.stringify(parameter));
       let temp = localStorage.getItem("detail");
       if (this.$route.name != "Detail") {
