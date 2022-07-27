@@ -14,6 +14,10 @@
     font-size: 14px;
 }
 
+.bigger-text {
+    font-size: 20px;
+}
+
 .f-italic {
     font-style: italic !important;
 }
@@ -24,6 +28,10 @@
 
 .l-text {
     text-align: left !important;
+}
+
+.r-text {
+    text-align: right !important;
 }
 
 .header-main {
@@ -53,8 +61,39 @@
     text-align: left;
 }
 
+.col-reverse {
+    display: flex;
+    flex-direction: column-reverse !important;
+}
+
+.col-not-reverse {
+    display: flex;
+    flex-direction: column !important;
+}
+
+.pad-2 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+.ml-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .width-45 {
     width: 45%;
+    margin: auto;
+}
+
+
+.width-45-mr {
+    width: 45%;
+    margin: auto;
+}
+
+.width-90 {
+    width: 95%;
     margin-left: 2rem;
 }
 
