@@ -1,13 +1,10 @@
 <template>
   <div class="h-max">
     <HeaderRithual :valueNav="navValue" />
-    <hr />
+    <!-- <hr /> -->
     <div class="w-100">
       <div v-for="img in mainImg" :key="img.id">
-        <div>
-          <img :src="img.image" alt="image" class="w-100" />
-        </div>
-        <div v-if="img.display_on" class="container mt-3">
+        <div v-if="img.display_on" class="pos_desc_abs container mt-3">
           <p
             class="smalingl-text"
             :class="{
@@ -18,6 +15,9 @@
           >
             {{ img.description_site }}
           </p>
+        </div>
+        <div>
+          <img :src="img.image" alt="image" class="w-100 blur-img" />
         </div>
       </div>
     </div>

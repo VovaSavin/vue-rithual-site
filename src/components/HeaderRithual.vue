@@ -5,7 +5,7 @@
         <li class="nav-item m-2" v-for="nav in navigator" :key="nav.value">
           <div class="w_nav_main">
             <span
-              class="nav-link main_nav border_around"
+              class="nav-link main_nav border_around f-bold"
               :class="{ active_main: nav.value == valueNavigate }"
               @mouseenter="showAndHide(nav.value)"
               @mouseleave="showAndHide(nav.value)"
@@ -23,7 +23,12 @@
             @mouseleave="show = false"
           >
             <div>
-              <div v-for="serv in rithualServices" :key="serv.id" class="m-1">
+              <div
+                v-for="serv in rithualServices"
+                :key="serv.id"
+                @click="getDataAndGoTo(serv.id, 'service')"
+                class="m-1 pointer hov_link_wrapper"
+              >
                 <a
                   href="#"
                   @click="getDataAndGoTo(serv.id, 'service')"
@@ -43,7 +48,11 @@
             @mouseleave="show_2 = false"
           >
             <div>
-              <div v-for="goods in rithualGoods" :key="goods.id" class="m-1">
+              <div
+                v-for="goods in rithualGoods"
+                :key="goods.id"
+                class="m-1 pointer hov_link_wrapper"
+              >
                 <a
                   href="#"
                   @click="getDataAndGoTo(goods.id, 'goods')"
@@ -186,7 +195,7 @@ export default {
   display: block;
 }
 .border_around {
-  border: 1px solid gray;
+  border: 2px solid #fff;
   border-radius: 7px;
 }
 .bg_gray {
@@ -199,12 +208,11 @@ export default {
 }
 .a_non_style {
   text-decoration: none !important;
-  padding: 1rem;
   color: #444444;
 }
-.a_non_style:hover {
+/* .a_non_style:hover {
   color: rgb(197, 156, 81);
-}
+} */
 .border_gr {
   box-shadow: 5px 5px 5px;
   border: 1px solid gray;
@@ -215,7 +223,8 @@ export default {
   font-weight: 400;
   font-family: "Droid Serif", sans-serif;
   text-transform: uppercase;
-  color: #444444;
+  /* color: #444444; */
+  color: #fff;
   cursor: pointer;
 }
 .w_nav_main {
@@ -224,5 +233,9 @@ export default {
 }
 .active_main {
   color: rgb(109, 109, 201);
+}
+.hov_link_wrapper:hover {
+  background-color: rgb(204, 202, 202);
+  color: rgb(197, 156, 81);
 }
 </style>

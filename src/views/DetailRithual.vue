@@ -2,31 +2,21 @@
   <div class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
     <hr />
-    <!-- <div>
-      dataDetail
-      {{ dataDetail }}
-      <hr />
-      onePositon
-      {{ onePositon }}
-      <hr />
-      localOnePosition
-      {{ localOnePosition }}
-    </div> -->
     <div class="w-100">
       <div class="mb-5 name_page f-bold">
         {{ chooseData().name }}
+      </div>
+      <div class="pos_desc_abs m-3">
+        <p class="f-italic">
+          {{ chooseData().description }}
+        </p>
       </div>
       <div class="m-3">
         <img
           :src="chooseData().picture"
           :alt="chooseData().picture"
-          class="w-100"
+          class="w-100 blur-img"
         />
-      </div>
-      <div class="m-3">
-        <p class="f-italic">
-          {{ chooseData().description }}
-        </p>
       </div>
     </div>
     <FooterRithual />

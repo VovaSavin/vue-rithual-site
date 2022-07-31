@@ -33,25 +33,13 @@
                 </p>
               </div>
             </div>
-            <div class="outer-img w-50">
-              <img
-                class="pad-2"
-                width="650"
-                height="450"
-                :src="w.picture"
-                alt=""
-              />
+            <div class="parent-for-img outer-img w-50">
+              <img class="pad-2 pad-1 w-img" :src="w.picture" alt="" />
             </div>
           </div>
           <div class="row mt-3 mb-3 desc_picture_2" v-else>
             <div class="outer-img w-50">
-              <img
-                class="pad-2"
-                width="650"
-                height="450"
-                :src="w.picture"
-                alt=""
-              />
+              <img class="pad-2 w-img" :src="w.picture" alt="" />
             </div>
             <div class="row width-45-mr desc_picture_inner">
               <div class="mb-3 text-center">
@@ -61,7 +49,7 @@
               </div>
               <div>
                 <p
-                  class="lead text_write"
+                  class="left-txt lead text_write r-text"
                   :class="{
                     'f-italic': w.font === 'К',
                     'f-bold': w.font === 'Ж',
@@ -123,46 +111,36 @@ export default {
       this.namePage = this.navigator[this.navValue].text;
     },
     getSizeBlock() {
-      if (document.querySelector("#app").offsetWidth < 1020) {
-        document.querySelectorAll("div.desc_picture").forEach((elem) => {
-          elem.classList.remove("row");
-          elem.classList.add("col-not-reverse");
-        });
-        document.querySelectorAll("div.desc_picture_inner").forEach((elem) => {
-          elem.classList.remove("width-45", "row");
-          elem.classList.add("w-100", "pad-2");
-        });
-        document.querySelectorAll("div.desc_picture_2").forEach((elem) => {
-          elem.classList.remove("row");
-          elem.classList.add("col-reverse");
-        });
-        document.querySelectorAll("img.pad-2").forEach((elem) => {
-          elem.classList.add("ml-auto");
-        });
-        document.querySelectorAll("div.outer-img").forEach((elem) => {
-          elem.classList.add("ml-auto");
-          elem.classList.remove("w-50");
-        });
-      } else {
-        document.querySelectorAll("div.desc_picture").forEach((elem) => {
-          elem.classList.remove("col");
-          elem.classList.add("row");
-        });
-        document.querySelectorAll("div.desc_picture_inner").forEach((elem) => {
-          elem.classList.remove("w-100", "pad-2");
-          elem.classList.add("width-45", "row");
-        });
-        document.querySelectorAll("div.desc_picture_2").forEach((elem) => {
-          elem.classList.remove("col-reverse");
-          elem.classList.add("row");
-        });
-        document.querySelectorAll("img.pad-2").forEach((elem) => {
-          elem.classList.remove("ml-auto");
-        });
-        document.querySelectorAll("div.outer-img").forEach((elem) => {
-          elem.classList.remove("ml-auto");
-          elem.classList.add("w-50");
-        });
+      if (
+        document.querySelector("#bg_gradient") &&
+        document.querySelector("#bg_gradient").offsetWidth < 1020
+      ) {
+        this.instancesClasses("div.desc_picture", "row", "col-not-reverse");
+        this.instancesClasses(
+          "div.desc_picture_inner",
+          ["width-45", "row"],
+          ["w-100", "pad-2"]
+        );
+        this.instancesClasses("div.desc_picture_2", "row", "col-reverse");
+        this.instancesClasses("img.pad-2", "nothing-class", "ml-auto");
+        this.instancesClasses("div.outer-img", "w-50", "ml-auto");
+
+        document.querySelector("p.left-txt").classList.remove("r-text");
+      } else if (
+        document.querySelector("#bg_gradient") &&
+        document.querySelector("#bg_gradient").offsetWidth >= 1020
+      ) {
+        this.instancesClasses("div.desc_picture", "col-not-reverse", "row");
+        this.instancesClasses(
+          "div.desc_picture_inner",
+          ["w-100", "pad-2"],
+          ["width-45", "row"]
+        );
+        this.instancesClasses("div.desc_picture_2", "col-reverse", "row");
+        this.instancesClasses("img.pad-2", "ml-auto", "nothing-class");
+        this.instancesClasses("div.outer-img", "ml-auto", "w-50");
+
+        document.querySelector("p.left-txt").classList.add("r-text");
       }
     },
     listenResize() {
@@ -170,6 +148,20 @@ export default {
     },
     listenLoad() {
       window.addEventListener("scroll", this.getSizeBlock);
+    },
+    instancesClasses(querySelectors, removes, adds) {
+      // Instance and remove class on selector
+      if (typeof removes == "string") {
+        document.querySelectorAll(querySelectors).forEach((elem) => {
+          elem.classList.remove(removes);
+          elem.classList.add(adds);
+        });
+      } else {
+        document.querySelectorAll(querySelectors).forEach((elem) => {
+          elem.classList.remove(removes[0], removes[1]);
+          elem.classList.add(adds[0], adds[1]);
+        });
+      }
     },
   },
 };

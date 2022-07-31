@@ -1,5 +1,5 @@
 <template>
-  <div class="bg_gray_gradient">
+  <div id="services_vue" class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
     <hr />
     <div class="w-100">
