@@ -1,7 +1,6 @@
 <template>
   <div class="h-max">
-    <HeaderRithual :valueNav="navValue" />
-    <!-- <hr /> -->
+    <HeaderRithual :valueNav="navValue" :headerImg="headerImage" />
     <div class="w-100">
       <div v-for="img in mainImg" :key="img.id">
         <div v-if="img.display_on" class="pos_desc_abs container mt-3">
@@ -43,6 +42,7 @@ export default {
       mainImg: null,
       navValue: 0,
       namePage: null,
+      headerImage: null,
     };
   },
   created() {
@@ -51,7 +51,9 @@ export default {
   methods: {
     runApp() {
       // Run
-      this.getMainPage().then(() => this.getNamePage());
+      this.getMainPage()
+        .then(() => this.getNamePage())
+        .then(() => this.getHeaderImage());
     },
     async getMainPage() {
       // Get image for main page
@@ -65,6 +67,10 @@ export default {
     },
     getNamePage() {
       this.namePage = this.navigator[this.navValue].text;
+    },
+    getHeaderImage() {
+      // Return header image
+      this.headerImage = this.mainImg[0].header_image;
     },
   },
 };

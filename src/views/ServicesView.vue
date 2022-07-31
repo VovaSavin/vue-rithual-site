@@ -20,8 +20,9 @@
         <div
           v-for="service in rithualServices"
           :key="service.id"
-          class="col-4 mb-4"
+          class="col-4 mb-4 h-blur pointer"
           :class="{ 'm-my-auto': rowOrCol }"
+          @click="getDataAndGoTo(service.id, 'service')"
         >
           <div>
             <img
@@ -32,11 +33,7 @@
             />
           </div>
           <div>
-            <a
-              href="#"
-              @click="getDataAndGoTo(service.id, 'service')"
-              class="a_non_style text_write"
-            >
+            <a href="#" class="a_non_style text_write">
               <b>
                 {{ service.name }}
               </b>

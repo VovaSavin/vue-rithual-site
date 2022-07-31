@@ -6,7 +6,7 @@
       <div class="mb-5 name_page f-bold">
         {{ chooseData().name }}
       </div>
-      <div class="pos_desc_abs m-3">
+      <div class="pos_desc_abs m-3 f-bold c-white">
         <p class="f-italic">
           {{ chooseData().description }}
         </p>

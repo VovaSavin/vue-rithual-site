@@ -20,8 +20,9 @@
         <div
           v-for="good in rithualGoods"
           :key="good.id"
-          class="col-4 mb-4"
+          class="col-4 mb-4 h-blur pointer"
           :class="{ 'm-my-auto': rowOrCol }"
+          @click="getDataAndGoTo(good.id, 'goods')"
         >
           <div>
             <img
@@ -32,11 +33,7 @@
             />
           </div>
           <div>
-            <a
-              href="#"
-              @click="getDataAndGoTo(good.id, 'goods')"
-              class="a_non_style text_write"
-            >
+            <a href="#" class="a_non_style text_write">
               <b>
                 {{ good.name }}
               </b>

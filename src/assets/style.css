@@ -40,18 +40,16 @@
 }
 
 .header-main {
-    background: linear-gradient(#b15000, #9f3801a6);
-    /* background-color: #9f3801a6; */
+    background: linear-gradient(#342d3d, #777777);
 
 }
 
 .footer-main {
-    /* background: linear-gradient(rgb(233, 226, 227), rgb(211, 203, 195)); */
-    background-color: #9f3801a6;
+    background: linear-gradient(#544f5a, #342d3d);
 }
 
 .bg_gray_gradient {
-    background: linear-gradient(rgb(253, 253, 253), rgb(196, 195, 195));
+    background: linear-gradient(rgb(253, 253, 253), #544f5a);
 }
 
 .blur-img {
@@ -155,8 +153,24 @@
 
 .pos_desc_abs {
     position: absolute;
-    z-index: 999;
+    z-index: 99;
     top: 50%;
     left: 10%;
     text-align: right;
+    padding: 1rem;
+}
+
+.pos_wrap_ads {
+    position: absolute;
+    z-index: 999;
+    text-align: center;
+    padding: 0;
+}
+
+.h-blur {
+    filter: blur(1px);
+}
+
+.h-blur:hover {
+    filter: none;
 }

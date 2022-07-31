@@ -13,7 +13,7 @@
       <div class="w-100 row_contacts">
         <ul class="list-unstyled w-50">
           <li v-for="ph in phone" :key="ph.id" class="left-text">
-            <span class="small lh-125">
+            <span class="small lh-125 c-white">
               <b> {{ ph.name }}: </b>
               <i> {{ ph.phone }} &nbsp;/&nbsp; {{ ph.email }} </i>
             </span>

@@ -79,6 +79,7 @@ export default {
   components: {},
   props: {
     valueNav: Number,
+    headerImg: String,
   },
   data() {
     return {
