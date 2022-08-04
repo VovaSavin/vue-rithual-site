@@ -200,7 +200,7 @@ export default {
   border-radius: 7px;
 }
 .bg_gray {
-  background-color: #e6eff8;
+  background-color: #a8afb6;
 }
 .pos_absolute {
   position: absolute;
@@ -227,7 +227,12 @@ export default {
   /* color: #444444; */
   color: #fff;
   cursor: pointer;
+  opacity: 0.5;
 }
+.main_nav:hover {
+  opacity: 1;
+}
+
 .w_nav_main {
   width: 203px !important;
   min-width: max-content;
@@ -235,6 +240,10 @@ export default {
 .active_main {
   color: rgb(109, 109, 201);
 }
+/* .hov_link_wrapper {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+} */
+
 .hov_link_wrapper:hover {
   background-color: rgb(204, 202, 202);
   color: rgb(197, 156, 81);

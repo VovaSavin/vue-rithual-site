@@ -141,6 +141,10 @@
     margin-right: auto;
 }
 
+.my-min-width {
+    min-width: 355px !important;
+}
+
 .my-col {
     display: flex;
     flex-direction: column;
@@ -150,6 +154,9 @@
     max-width: 400px !important;
 }
 
+.h-max-c {
+    height: 80%;
+}
 
 .pos_desc_abs {
     position: absolute;
