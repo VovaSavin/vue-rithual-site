@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-main w-100 h-100">
+  <div class="footer-main w-100 h-100 shadow mt-5">
     <footer
       class="
         d-flex

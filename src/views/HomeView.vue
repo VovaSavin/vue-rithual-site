@@ -1,11 +1,12 @@
 <template>
   <div class="h-max">
-    <HeaderRithual :valueNav="navValue" :headerImg="headerImage" />
-    <div class="w-100">
+    <HeaderRithual :valueNav="navValue" />
+    <hr />
+    <div class="w-100 bg_gray_gradient pt-3 mb-5">
       <div v-for="img in mainImg" :key="img.id">
-        <div v-if="img.display_on" class="pos_desc_abs container mt-3">
-          <p
-            class="smalingl-text"
+        <div v-if="img.display_on" class="bg_block_reverse">
+          <div
+            class="bigger-text container pt-5"
             :class="{
               'f-italic': img.font === 'К',
               'f-bold': img.font === 'Ж',
@@ -13,13 +14,25 @@
             }"
           >
             {{ img.description_site }}
-          </p>
+          </div>
         </div>
         <div>
-          <img :src="img.image" alt="image" class="w-100 blur-img" />
+          <img :src="img.image" alt="image" class="w-100" />
+        </div>
+        <div v-if="img.display_on_list" class="bg_block">
+          <div
+            class="bigger-text container"
+            :class="{
+              'f-italic': img.font === 'К',
+              'f-bold': img.font === 'Ж',
+              'f-bold f-italic': img.font === 'ЖК',
+            }"
+            v-html="img.header_image"
+          ></div>
         </div>
       </div>
     </div>
+    <hr />
     <FooterRithual />
   </div>
 </template>

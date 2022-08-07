@@ -3,7 +3,7 @@
     <HeaderRithual :valueNav="navValue" />
     <hr />
     <div class="w-100">
-      <div class="row row justify-content-end mb-3 name_page">
+      <div class="row row justify-content-end name_page">
         <div class="col-6">
           <b>
             {{ namePage }}
@@ -21,7 +21,7 @@
         <div
           v-for="service in rithualServices"
           :key="service.id"
-          class="col-4 mb-4 h-blur pointer"
+          class="col-4 mb-4 pointer my-min-width"
           :class="{ 'm-my-auto': rowOrCol }"
           @click="getDataAndGoTo(service.id, 'service')"
         >
@@ -42,6 +42,7 @@
           </div>
         </div>
       </div>
+      <!--  -->
       <div
         v-else
         id="carouselExampleControls"
@@ -49,55 +50,55 @@
         data-bs-ride="carousel"
       >
         <div class="carousel-inner height-500">
-          <div
-            v-for="service in rithualServices"
-            :key="service.id"
-            class="carousel-item height-500"
-            :class="{
-              active: service.id == someNumber,
-              '': service.id != someNumber,
-            }"
-          >
-            <div class="w-100 h-100">
-              <div
-                class="
-                  services__button
-                  d-flex
-                  align-center align-middle
-                  border-15
-                "
-              >
-                <a
-                  href="#"
-                  class="btn btn-white"
-                  @click="getDataAndGoTo(service.id, 'service')"
+          <div v-for="service in rithualServices" :key="service.id">
+            <div
+              class="carousel-item height-500"
+              :class="{
+                active: service.id == someNumber,
+                '': service.id != someNumber,
+              }"
+            >
+              <div class="w-100 h-100">
+                <div
+                  class="
+                    services__button
+                    d-flex
+                    align-center align-middle
+                    border-15
+                  "
                 >
-                  Дізнатися більше
-                </a>
+                  <a
+                    href="#"
+                    class="btn btn-white"
+                    @click="getDataAndGoTo(service.id, 'service')"
+                  >
+                    Дізнатися більше
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="height-300">
-              <img
-                :src="service.picture"
-                class="
-                  d-block
-                  w-75
-                  ml-auto
-                  mr-auto
-                  border-15
-                  padding-50
-                  height-300
-                  services__image
-                "
-                :alt="service.name"
-                width="355"
-                height="255"
-              />
-            </div>
-            <div class="goods_title pointer goods_visibility d-line-wrap">
-              <h3 class="heading-3 w-100 d-line">
-                {{ service.name }}
-              </h3>
+              <div class="height-300">
+                <img
+                  :src="service.picture"
+                  class="
+                    d-block
+                    w-75
+                    ml-auto
+                    mr-auto
+                    border-15
+                    padding-50
+                    height-300
+                    services__image
+                  "
+                  :alt="service.name"
+                  width="355"
+                  height="255"
+                />
+              </div>
+              <div class="goods_title pointer goods_visibility d-line-wrap">
+                <h3 class="heading-3 w-100 d-line">
+                  {{ service.name }}
+                </h3>
+              </div>
             </div>
           </div>
         </div>
@@ -106,7 +107,6 @@
           type="button"
           data-bs-target="#carouselExampleControls"
           data-bs-slide="prev"
-          @click="countTo('l', lenListRithual)"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -116,7 +116,6 @@
           type="button"
           data-bs-target="#carouselExampleControls"
           data-bs-slide="next"
-          @click="countTo('r', lenListRithual)"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
@@ -149,7 +148,7 @@ export default {
       namePage: null,
       rowOrCol: null,
       onePositon: null,
-      someNumber: 0,
+      someNumber: 1,
       lenListRithual: null,
     };
   },
@@ -161,8 +160,7 @@ export default {
       // Run
       this.getServices()
         .then(() => this.getNamePage())
-        .then(() => this.getLength(this.rithualServices))
-        .then(() => this.countTo("r", this.lenListRithual));
+        .then(() => this.getLength(this.rithualServices));
     },
     async getServices() {
       // Get data of rithual services
@@ -225,20 +223,6 @@ export default {
       // Get length list
       this.lenListRithual = list.length;
     },
-    countTo(side, instanceNum) {
-      // Count to num on bigger side or smalling side
-      if (side === "l") {
-        this.someNumber -= 1;
-        if (this.someNumber < 0) {
-          this.someNumber = instanceNum - 1;
-        }
-      } else if (side === "r") {
-        this.someNumber += 1;
-        if (this.someNumber > instanceNum - 1) {
-          this.someNumber = 0;
-        }
-      }
-    },
   },
 };
 </script>
@@ -264,7 +248,7 @@ export default {
   display: -ms-flexbox;
   display: flex;
   z-index: 2;
-  top: 45%;
+  top: 5%;
   left: 25%;
   color: #fff;
   -webkit-transition: all 0.3s ease-out;
@@ -295,10 +279,6 @@ export default {
   height: 100%;
   top: 0;
   left: 0;
-}
-
-.border-15 {
-  border-radius: 15px;
 }
 
 .height-500 {
@@ -362,14 +342,6 @@ export default {
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-/* .btn-white:hover {
-  background: rgb(132, 215, 229);
-  color: #fff;
-  opacity: 1;
-  -webkit-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-} */
 
 .btn {
   font-size: 20px;

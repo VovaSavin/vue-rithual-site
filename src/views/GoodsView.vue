@@ -50,55 +50,55 @@
         data-bs-ride="carousel"
       >
         <div class="carousel-inner height-500">
-          <div
-            v-for="good in rithualGoods"
-            :key="good.id"
-            class="carousel-item height-500"
-            :class="{
-              active: good.id == someNumber,
-              '': good.id != someNumber,
-            }"
-          >
-            <div class="w-100 h-100">
-              <div
-                class="
-                  services__button
-                  d-flex
-                  align-center align-middle
-                  border-15
-                "
-              >
-                <a
-                  href="#"
-                  class="btn btn-white"
-                  @click="getDataAndGoTo(good.id, 'goods')"
+          <div v-for="good in rithualGoods" :key="good.id">
+            <div
+              class="carousel-item height-500"
+              :class="{
+                active: good.id == someNumber,
+                '': good.id != someNumber,
+              }"
+            >
+              <div class="w-100 h-100">
+                <div
+                  class="
+                    services__button
+                    d-flex
+                    align-center align-middle
+                    border-15
+                  "
                 >
-                  Дізнатися більше
-                </a>
+                  <a
+                    href="#"
+                    class="btn btn-white"
+                    @click="getDataAndGoTo(good.id, 'goods')"
+                  >
+                    Дізнатися більше
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="height-300">
-              <img
-                :src="good.picture"
-                class="
-                  d-block
-                  w-75
-                  ml-auto
-                  mr-auto
-                  border-15
-                  padding-50
-                  height-300
-                  services__image
-                "
-                :alt="good.name"
-                width="355"
-                height="255"
-              />
-            </div>
-            <div class="goods_title pointer goods_visibility d-line-wrap">
-              <h3 class="heading-3 w-100 d-line">
-                {{ good.name }}
-              </h3>
+              <div class="height-300">
+                <img
+                  :src="good.picture"
+                  class="
+                    d-block
+                    w-75
+                    ml-auto
+                    mr-auto
+                    border-15
+                    padding-50
+                    height-300
+                    services__image
+                  "
+                  :alt="good.name"
+                  width="355"
+                  height="255"
+                />
+              </div>
+              <div class="goods_title pointer goods_visibility d-line-wrap">
+                <h3 class="heading-3 w-100 d-line">
+                  {{ good.name }}
+                </h3>
+              </div>
             </div>
           </div>
         </div>
@@ -107,7 +107,6 @@
           type="button"
           data-bs-target="#carouselExampleControls"
           data-bs-slide="prev"
-          @click="countTo('l', lenListRithual)"
         >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -117,7 +116,6 @@
           type="button"
           data-bs-target="#carouselExampleControls"
           data-bs-slide="next"
-          @click="countTo('r', lenListRithual)"
         >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
@@ -151,7 +149,7 @@ export default {
       namePage: null,
       rowOrCol: null,
       onePositon: null,
-      someNumber: 0,
+      someNumber: 1,
       lenListRithual: null,
     };
   },
@@ -163,8 +161,7 @@ export default {
       // Run
       this.getGoods()
         .then(() => this.getNamePage())
-        .then(() => this.getLength(this.rithualGoods))
-        .then(() => this.countTo("r", this.lenListRithual));
+        .then(() => this.getLength(this.rithualGoods));
     },
     async getGoods() {
       // Get data of rithual goods
@@ -226,20 +223,6 @@ export default {
       // Get length list
       this.lenListRithual = list.length;
     },
-    countTo(side, instanceNum) {
-      // Count to num on bigger side or smalling side
-      if (side === "l") {
-        this.someNumber -= 1;
-        if (this.someNumber < 0) {
-          this.someNumber = instanceNum - 1;
-        }
-      } else if (side === "r") {
-        this.someNumber += 1;
-        if (this.someNumber > instanceNum - 1) {
-          this.someNumber = 0;
-        }
-      }
-    },
   },
 };
 </script>
@@ -265,7 +248,7 @@ export default {
   display: -ms-flexbox;
   display: flex;
   z-index: 2;
-  top: 45%;
+  top: 5%;
   left: 25%;
   color: #fff;
   -webkit-transition: all 0.3s ease-out;
@@ -285,7 +268,9 @@ export default {
   font-size: 30px;
   font-size: calc(22px + (30 - 22) * ((100vw - 300px) / (1900 - 300)));
   line-height: 1.3;
-  font-family: PlayfairDisplay, sans-serif !important;
+  /* font-family: PlayfairDisplay, sans-serif !important; */
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
 }
 
 .services__image::before {
@@ -296,10 +281,6 @@ export default {
   height: 100%;
   top: 0;
   left: 0;
-}
-
-.border-15 {
-  border-radius: 15px;
 }
 
 .height-500 {
@@ -363,14 +344,6 @@ export default {
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-/* .btn-white:hover {
-  background: rgb(132, 215, 229);
-  color: #fff;
-  opacity: 1;
-  -webkit-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-} */
 
 .btn {
   font-size: 20px;

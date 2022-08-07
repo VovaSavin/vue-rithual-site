@@ -6,17 +6,16 @@
       <div class="mb-5 name_page f-bold">
         {{ chooseData().name }}
       </div>
-      <div class="pos_desc_abs m-3 f-bold c-white">
-        <p class="f-italic">
-          {{ chooseData().description }}
-        </p>
-      </div>
       <div class="m-3">
         <img
+          height="350"
           :src="chooseData().picture"
           :alt="chooseData().picture"
           class="w-100 blur-img"
         />
+      </div>
+      <div class="m-3 f-bold">
+        <div class="f-italic" v-html="chooseData().description"></div>
       </div>
     </div>
     <FooterRithual />
@@ -69,4 +68,12 @@ export default {
 </script>
 
 <style scoped>
+.pos_desc_abs {
+  position: absolute;
+  z-index: 99;
+  top: 50%;
+  left: 20%;
+  text-align: right;
+  padding: 2rem;
+}
 </style>

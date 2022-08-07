@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <header class="d-flex justify-content-center py-3 header-main">
+  <div class="pb-3">
+    <header class="pos_absolute d-flex justify-content-center py-3 w-100">
       <ul class="nav">
         <li class="nav-item m-2" v-for="nav in navigator" :key="nav.value">
           <div class="w_nav_main">
@@ -67,6 +67,15 @@
         </li>
       </ul>
     </header>
+    <div class="w-100">
+      <img
+        v-for="head in headerData"
+        :key="head.id"
+        :src="head.image"
+        :alt="head.name"
+        class="w-100 blur-img"
+      />
+    </div>
   </div>
 </template>
 
@@ -79,12 +88,12 @@ export default {
   components: {},
   props: {
     valueNav: Number,
-    headerImg: String,
   },
   data() {
     return {
       navigator: navigator(),
       mainImg: null,
+      headerData: null,
       rithualServices: null,
       rithualGoods: null,
       show: false,
@@ -100,7 +109,19 @@ export default {
   methods: {
     runApp() {
       // Run
-      this.getServices().then(() => this.getGoods());
+      this.getImageHeader()
+        .then(() => this.getServices())
+        .then(() => this.getGoods());
+    },
+    async getImageHeader() {
+      // Get data of header
+      this.headerData = await fetch(
+        `${this.$store.getters.getServerUrl}/headers/`
+      )
+        .then((response) => response.json())
+        .catch(function (error) {
+          console.log(error);
+        });
     },
     async getServices() {
       // Get data of rithual services
@@ -224,13 +245,20 @@ export default {
   font-weight: 400;
   font-family: "Droid Serif", sans-serif;
   text-transform: uppercase;
-  /* color: #444444; */
-  color: #fff;
+  background: white;
+  color: rgba(74, 71, 88, 0.836);
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.7;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 .main_nav:hover {
   opacity: 1;
+  background: rgb(211, 205, 205);
+}
+.border_around:hover {
+  border: 2px solid rgb(211, 205, 205);
 }
 
 .w_nav_main {

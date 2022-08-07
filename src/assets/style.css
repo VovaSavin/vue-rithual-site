@@ -52,8 +52,16 @@
     background: linear-gradient(rgb(253, 253, 253), #544f5a);
 }
 
+.bg_block {
+    background: linear-gradient(rgb(253, 253, 253), #544f5a);
+}
+
+.bg_block_reverse {
+    background: linear-gradient(#544f5a, rgb(253, 253, 253));
+}
+
 .blur-img {
-    filter: blur(5px);
+    filter: blur(2px);
 }
 
 .name_page {
@@ -161,7 +169,7 @@
 .pos_desc_abs {
     position: absolute;
     z-index: 99;
-    top: 50%;
+    top: 20%;
     left: 10%;
     text-align: right;
     padding: 1rem;
@@ -180,4 +188,8 @@
 
 .h-blur:hover {
     filter: none;
+}
+
+.border-15 {
+    border-radius: 15px;
 }

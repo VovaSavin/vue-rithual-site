@@ -1,13 +1,13 @@
 <template>
   <div class="form-check form-switch w-50 place_check_coeff">
-    <input
+    <!-- <input
       class="form-check-input pointer size_check_coeff"
       type="checkbox"
       role="switch"
       id="flexSwitchCheckDefault"
       v-model="myRowOrCol"
       @click="$emit('checked')"
-    />
+    /> -->
     <input
       class="for-check-change"
       type="checkbox"
