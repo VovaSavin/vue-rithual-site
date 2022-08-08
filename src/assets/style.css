@@ -10,6 +10,10 @@
     color: #fff;
 }
 
+.c-blue {
+    color: #50b0d6;
+}
+
 .text_write {
     font-size: 16px;
 }
@@ -17,6 +21,10 @@
 .smalingl-text {
     font-size: 14px;
     color: white;
+}
+
+.sm-text {
+    font-size: 14px;
 }
 
 .bigger-text {
@@ -166,6 +174,13 @@
     height: 80%;
 }
 
+.pos_down_20 {
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    z-index: 1;
+}
+
 .pos_desc_abs {
     position: absolute;
     z-index: 99;
@@ -192,4 +207,8 @@
 
 .border-15 {
     border-radius: 15px;
+}
+
+.shadow-dr {
+    box-shadow: 0 0.5rem 3rem rgb(0, 0, 0) !important;
 }

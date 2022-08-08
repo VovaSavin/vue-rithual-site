@@ -88,6 +88,7 @@
                     padding-50
                     height-300
                     services__image
+                    shadow-dr
                   "
                   :alt="service.name"
                   width="355"

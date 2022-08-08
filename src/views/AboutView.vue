@@ -34,12 +34,16 @@
               </div>
             </div>
             <div class="parent-for-img outer-img w-50">
-              <img class="pad-2 pad-1 w-img" :src="w.picture" alt="" />
+              <img
+                class="pad-2 pad-1 w-img shadow-dr"
+                :src="w.picture"
+                alt=""
+              />
             </div>
           </div>
           <div class="row mt-3 mb-3 desc_picture_2" v-else>
             <div class="outer-img w-50">
-              <img class="pad-2 w-img" :src="w.picture" alt="" />
+              <img class="pad-2 w-img shadow-dr" :src="w.picture" alt="" />
             </div>
             <div class="row width-45-mr desc_picture_inner">
               <div class="mb-3 text-center">

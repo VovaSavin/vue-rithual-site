@@ -6,7 +6,7 @@
       <div v-for="img in mainImg" :key="img.id">
         <div v-if="img.display_on" class="bg_block_reverse">
           <div
-            class="bigger-text container pt-5"
+            class="container lead pt-5"
             :class="{
               'f-italic': img.font === 'К',
               'f-bold': img.font === 'Ж',
@@ -21,7 +21,7 @@
         </div>
         <div v-if="img.display_on_list" class="bg_block">
           <div
-            class="bigger-text container"
+            class="container"
             :class="{
               'f-italic': img.font === 'К',
               'f-bold': img.font === 'Ж',

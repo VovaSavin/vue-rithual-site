@@ -139,6 +139,8 @@
     </footer>
   </div>
 </template>
+
+
 <script>
 export default {
   name: "FooterRithual",
@@ -149,9 +151,12 @@ export default {
     };
   },
   created() {
-    this.getPhoneNumber();
+    this.runApp();
   },
   methods: {
+    runApp() {
+      this.getPhoneNumber().then(() => this.setInToLocal(this.phone));
+    },
     async getPhoneNumber() {
       // Get image for main page
       this.phone = await fetch(`${this.$store.getters.getServerUrl}/contacts/`)
@@ -160,9 +165,15 @@ export default {
           console.log(error);
         });
     },
+    async setInToLocal(dataJ) {
+      // Set data in local storage
+      localStorage.setItem("contacts", JSON.stringify(dataJ));
+    },
   },
 };
 </script>
+
+
 <style scoped>
 .row_contacts {
   display: flex;
