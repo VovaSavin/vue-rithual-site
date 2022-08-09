@@ -98,12 +98,12 @@
 }
 
 .pad-2 {
-    padding-left: 2.5rem;
+    margin-left: 2.5rem;
     /* padding-right: .5rem !important; */
 }
 
 .pad-1 {
-    padding-left: 3rem !important;
+    margin-left: 3rem !important;
 }
 
 .mar-1 {
@@ -211,4 +211,20 @@
 
 .shadow-dr {
     box-shadow: 0 0.5rem 3rem rgb(0, 0, 0) !important;
+}
+
+/* Services orGoods */
+.goods_title {
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 2;
+    top: 5%;
+    left: 25%;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }

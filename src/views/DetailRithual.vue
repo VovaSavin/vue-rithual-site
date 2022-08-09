@@ -17,6 +17,22 @@
       <div class="m-3 f-bold">
         <div class="f-italic" v-html="chooseData().description"></div>
       </div>
+      <section class="prices">
+        <div class="my-container">
+          <div class="row m-0">
+            <div class="prices-table">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>{{ chooseData().name }}</td>
+                    <td>від {{ chooseData().price_of }} грн</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     <FooterRithual />
   </div>
@@ -75,5 +91,31 @@ export default {
   left: 20%;
   text-align: right;
   padding: 2rem;
+}
+
+.my-container {
+  max-width: 1110px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.prices-table {
+  width: 100%;
+}
+
+.prices-table table {
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.prices-table table tr:nth-child(2n + 1) {
+  background: #979797;
+}
+.prices-table table tr td:first-of-type {
+  width: 58%;
+  border-right: 1px solid #c4c4c4;
+}
+.prices-table table td {
+  padding: 15px 20px;
 }
 </style>

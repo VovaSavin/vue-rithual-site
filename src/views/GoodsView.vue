@@ -235,26 +235,10 @@ export default {
   color: #444444;
 }
 .a_non_style:hover {
-  color: rgb(197, 156, 81);
+  color: #2392be;
 }
 .wid-500 {
   height: 450px;
-}
-
-.goods_title {
-  position: absolute;
-  width: 50%;
-  height: 10%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  z-index: 2;
-  top: 5%;
-  left: 25%;
-  color: #fff;
-  -webkit-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
 }
 
 .goods_visibility {
