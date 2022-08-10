@@ -1,7 +1,24 @@
 <template>
   <div class="wrapper_side w-100">
     <transition name="slide-fade">
-      <div class="u-custom-menu u-nav-container-collapse" style="width: 100%">
+      <div v-if="!statusInnerSideMenu">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="26"
+          height="26"
+          fill="black"
+          id="show_hide_side_navi"
+          class="bi bi-list"
+          viewBox="0 0 16 16"
+          @click="changeStatusInnerSideMenu()"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+          />
+        </svg>
+      </div>
+      <div v-else class="u-custom-menu u-nav-container-collapse w-75">
         <div class="u-menu-close">
           <svg
             id="close_btn"
@@ -11,7 +28,7 @@
             fill="gainsboro"
             class="bi bi-x-lg"
             viewBox="0 0 16 16"
-            @click="checkSideMenu()"
+            @click="changeStatusInnerSideMenu()"
           >
             <path
               fill-rule="evenodd"
@@ -24,65 +41,68 @@
           </svg>
         </div>
         <ul class="u-align-center">
-          <li class="u-nav-item">
+          <li v-for="nav in navigator" :key="nav.value" class="u-nav-item">
             <a
               class="u-button-style u-nav-link active"
-              href="/calculator"
-              style="padding: 10px 2px"
-              >Вихідні дані</a
-            >
-          </li>
-          <li class="u-nav-item">
-            <a
-              class="u-button-style u-nav-link"
-              href="/"
-              style="padding: 10px 2px"
-              >Підбір аналогів</a
-            >
-          </li>
-          <li class="u-nav-item">
-            <a
-              class="u-button-style u-nav-link"
-              href="/about"
-              style="padding: 10px 2px"
-              >Коригування</a
-            >
-          </li>
-          <li class="u-nav-item">
-            <a
-              class="u-button-style u-nav-link"
               href="#"
               style="padding: 10px 2px"
-              >Результат</a
+              @click="goToPage(nav.link)"
             >
+              {{ nav.text }}
+            </a>
           </li>
         </ul>
+        <ContactsView />
       </div>
     </transition>
   </div>
 </template>
 
 <script>
+import { navigator } from "@/assets/data";
+import ContactsView from "../contacts/ContactsView.vue";
+
 export default {
-  name: "SideNavigation",
+  name: "SideNavigatorComponent",
+  components: {
+    ContactsView,
+  },
   props: {
     checkSideMenu: Function,
+    innerSideStatus: Boolean,
   },
   data() {
-    return {};
+    return {
+      navigator: navigator(),
+      statusInnerSideMenu: false,
+      contacts: JSON.parse(localStorage.getItem("contacts")),
+    };
   },
   created() {},
-  methods: {},
+  methods: {
+    changeStatusInnerSideMenu() {
+      // Change statusInnerSideMenu
+      this.statusInnerSideMenu = !this.statusInnerSideMenu;
+    },
+    goToPage(goPage) {
+      // Go to page
+      if (this.$route.name != goPage) {
+        this.$router.push({ name: goPage });
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
 .wrapper_side {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  min-height: 35px;
 }
 .u-nav-container-collapse {
-  width: 100% !important;
   text-align: left;
   overflow: auto;
   position: absolute !important;
@@ -91,6 +111,7 @@ export default {
   right: 0;
   left: 0;
   background-color: #000000ea !important;
+  z-index: 99;
 }
 .u-align-center {
   display: table;
@@ -135,7 +156,7 @@ svg {
   font-weight: bold;
 }
 svg:hover {
-  fill: white;
+  fill: #2392be;
 }
 .u-nav-link:hover {
   color: rgb(255, 255, 255);

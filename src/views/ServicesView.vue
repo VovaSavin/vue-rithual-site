@@ -1,7 +1,7 @@
 <template>
   <div id="services_vue" class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
-    <hr />
+
     <div class="w-100">
       <div class="row row justify-content-end name_page">
         <div class="col-6">

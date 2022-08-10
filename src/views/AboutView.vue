@@ -1,7 +1,6 @@
 <template>
   <div id="bg_gradient" class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
-    <hr />
     <div class="w-100">
       <div class="mb-5 name_page">
         <b>

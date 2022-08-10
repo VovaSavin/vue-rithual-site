@@ -1,7 +1,7 @@
 <template>
   <div id="goods_vue" class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
-    <hr />
+
     <div class="w-100">
       <div class="row row justify-content-end name_page">
         <div class="col-6">
@@ -31,6 +31,7 @@
               :alt="good.name"
               width="355"
               height="255"
+              class="shadow-dr"
             />
           </div>
           <div>
@@ -148,12 +149,13 @@ export default {
       rithualGoods: null,
       navValue: 2,
       namePage: null,
-      rowOrCol: null,
+      rowOrCol: false,
       onePositon: null,
       someNumber: 1,
       lenListRithual: null,
     };
   },
+  beforeCreate() {},
   created() {
     this.runApp();
   },
@@ -223,6 +225,15 @@ export default {
     getLength(list) {
       // Get length list
       this.lenListRithual = list.length;
+      this.changeDisplayListData();
+    },
+    changeDisplayListData() {
+      // Меняет верхнюю навигацию сайта
+      console.log("hello");
+      let tempSize = document.querySelector("body").offsetWidth;
+      if (tempSize < 685) {
+        this.rowOrCol = true;
+      }
     },
   },
 };
@@ -253,9 +264,7 @@ export default {
   font-size: 30px;
   font-size: calc(22px + (30 - 22) * ((100vw - 300px) / (1900 - 300)));
   line-height: 1.3;
-  /* font-family: PlayfairDisplay, sans-serif !important; */
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
 }
 
 .services__image::before {

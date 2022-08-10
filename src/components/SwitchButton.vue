@@ -1,20 +1,16 @@
 <template>
   <div class="form-check form-switch w-50 place_check_coeff">
-    <!-- <input
-      class="form-check-input pointer size_check_coeff"
-      type="checkbox"
-      role="switch"
-      id="flexSwitchCheckDefault"
-      v-model="myRowOrCol"
-      @click="$emit('checked')"
-    /> -->
     <input
       class="for-check-change"
       type="checkbox"
       v-model="myRowOrCol"
       @click="$emit('checked')"
     />
-    <span v-if="myRowOrCol" class="small lh-125 device">
+    <span
+      v-if="myRowOrCol"
+      class="small lh-125 device"
+      style="min-height: 30px"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -57,6 +53,7 @@ export default {
       myRowOrCol: this.innerRowOrCol,
     };
   },
+  beforeCreate() {},
   created() {},
   methods: {},
 };

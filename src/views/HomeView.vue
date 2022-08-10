@@ -1,7 +1,6 @@
 <template>
   <div class="h-max">
     <HeaderRithual :valueNav="navValue" />
-    <hr />
     <div class="w-100 bg_gray_gradient pt-3 mb-5">
       <div v-for="img in mainImg" :key="img.id">
         <div v-if="img.display_on" class="bg_block_reverse">
