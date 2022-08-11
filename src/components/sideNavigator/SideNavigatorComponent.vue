@@ -18,41 +18,44 @@
           />
         </svg>
       </div>
-      <div v-else class="u-custom-menu u-nav-container-collapse w-75">
-        <div class="u-menu-close">
-          <svg
-            id="close_btn"
-            xmlns="http://www.w3.org/2000/svg"
-            width="26"
-            height="26"
-            fill="gainsboro"
-            class="bi bi-x-lg"
-            viewBox="0 0 16 16"
-            @click="changeStatusInnerSideMenu()"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
-            />
-            <path
-              fill-rule="evenodd"
-              d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
-            />
-          </svg>
-        </div>
-        <ul class="u-align-center">
-          <li v-for="nav in navigator" :key="nav.value" class="u-nav-item">
-            <a
-              class="u-button-style u-nav-link active"
-              href="#"
-              style="padding: 10px 2px"
-              @click="goToPage(nav.link)"
+      <div v-else class="u-custom-menu u-nav-container-collapse w-100 h-100">
+        <div class="fix">
+          <div class="u-menu-close mt-3">
+            <svg
+              id="close_btn"
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              fill="gainsboro"
+              class="bi bi-x-lg"
+              viewBox="0 0 16 16"
+              @click="changeStatusInnerSideMenu()"
             >
-              {{ nav.text }}
-            </a>
-          </li>
-        </ul>
-        <ContactsView />
+              <path
+                fill-rule="evenodd"
+                d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
+              />
+            </svg>
+          </div>
+
+          <ul class="u-align-center">
+            <li v-for="nav in navigator" :key="nav.value" class="u-nav-item">
+              <a
+                class="u-button-style u-nav-link active"
+                href="#"
+                style="padding: 10px 2px"
+                @click="goToPage(nav.link)"
+              >
+                {{ nav.text }}
+              </a>
+            </li>
+          </ul>
+          <ContactsView :whoParent="headerComp" />
+        </div>
       </div>
     </transition>
   </div>
@@ -76,6 +79,7 @@ export default {
       navigator: navigator(),
       statusInnerSideMenu: false,
       contacts: JSON.parse(localStorage.getItem("contacts")),
+      headerComp: "sideComponent",
     };
   },
   created() {},
@@ -105,13 +109,14 @@ export default {
 .u-nav-container-collapse {
   text-align: left;
   overflow: auto;
-  position: absolute !important;
+  position: fixed !important;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
   background-color: #000000ea !important;
   z-index: 99;
+  min-height: 100vh;
 }
 .u-align-center {
   display: table;
@@ -169,5 +174,10 @@ svg:hover {
   letter-spacing: initial;
   font-weight: initial;
   margin-right: 15px;
+}
+.fix {
+  position: fixed;
+  left: -20px;
+  z-index: 555;
 }
 </style>

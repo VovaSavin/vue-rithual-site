@@ -1,7 +1,7 @@
 <template>
   <div class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
-    <hr />
+
     <div class="w-100">
       <div class="mb-5 name_page f-bold">
         {{ chooseData().name }}
@@ -25,7 +25,9 @@
                 <tbody>
                   <tr>
                     <td>{{ chooseData().name }}</td>
-                    <td>від {{ chooseData().price_of }} грн</td>
+                    <td>
+                      від <b>{{ chooseData().price_of }}</b> грн
+                    </td>
                   </tr>
                 </tbody>
               </table>

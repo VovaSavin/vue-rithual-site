@@ -1,38 +1,43 @@
 <template>
   <div class="h-max">
-    <HeaderRithual :valueNav="navValue" />
-    <div class="w-100 bg_gray_gradient pt-3 mb-5">
-      <div v-for="img in mainImg" :key="img.id">
-        <div v-if="img.display_on" class="bg_block_reverse">
-          <div
-            class="container lead pt-5"
-            :class="{
-              'f-italic': img.font === 'К',
-              'f-bold': img.font === 'Ж',
-              'f-bold f-italic': img.font === 'ЖК',
-            }"
-          >
-            {{ img.description_site }}
+    <div v-if="ifLoad">
+      <HeaderRithual :valueNav="navValue" />
+      <div class="w-100 bg_gray_gradient pt-3 mb-5">
+        <div v-for="img in mainImg" :key="img.id">
+          <div v-if="img.display_on" class="bg_block_reverse">
+            <div
+              class="container lead pt-5"
+              :class="{
+                'f-italic': img.font === 'К',
+                'f-bold': img.font === 'Ж',
+                'f-bold f-italic': img.font === 'ЖК',
+              }"
+            >
+              {{ img.description_site }}
+            </div>
+          </div>
+          <div>
+            <img :src="img.image" alt="image" class="w-100" />
+          </div>
+          <div v-if="img.display_on_list" class="bg_block">
+            <div
+              class="container"
+              :class="{
+                'f-italic': img.font === 'К',
+                'f-bold': img.font === 'Ж',
+                'f-bold f-italic': img.font === 'ЖК',
+              }"
+              v-html="img.header_image"
+            ></div>
           </div>
         </div>
-        <div>
-          <img :src="img.image" alt="image" class="w-100" />
-        </div>
-        <div v-if="img.display_on_list" class="bg_block">
-          <div
-            class="container"
-            :class="{
-              'f-italic': img.font === 'К',
-              'f-bold': img.font === 'Ж',
-              'f-bold f-italic': img.font === 'ЖК',
-            }"
-            v-html="img.header_image"
-          ></div>
-        </div>
       </div>
+      <hr />
+      <FooterRithual />
     </div>
-    <hr />
-    <FooterRithual />
+    <div v-else>
+      <SpinnerComponent />
+    </div>
   </div>
 </template>
 
@@ -41,12 +46,14 @@
 import { navigator } from "@/assets/data";
 import FooterRithual from "@/components/FooterRithual.vue";
 import HeaderRithual from "@/components/HeaderRithual.vue";
+import SpinnerComponent from "@/components/spinners/SpinnerComponent.vue";
 
 export default {
   name: "HomeView",
   components: {
     FooterRithual,
     HeaderRithual,
+    SpinnerComponent,
   },
   data() {
     return {
@@ -55,6 +62,7 @@ export default {
       navValue: 0,
       namePage: null,
       headerImage: null,
+      ifLoad: false,
     };
   },
   created() {
@@ -65,7 +73,8 @@ export default {
       // Run
       this.getMainPage()
         .then(() => this.getNamePage())
-        .then(() => this.getHeaderImage());
+        .then(() => this.getHeaderImage())
+        .then((this.ifLoad = true));
     },
     async getMainPage() {
       // Get image for main page

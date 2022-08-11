@@ -17,7 +17,7 @@
         </div>
       </div>
       <!-- <div :class="{ row: !rowOrCol, 'my-col': rowOrCol }"> -->
-      <div v-if="rowOrCol" class="my-col mt-2">
+      <div v-if="rowOrCol" class="my-col mt-5">
         <div
           v-for="service in rithualServices"
           :key="service.id"
@@ -31,12 +31,12 @@
               :alt="service.name"
               width="355"
               height="255"
-              class="shadow-dr mb-1"
+              class="shadow-dr mb-1 border-15"
             />
           </div>
           <div>
             <a href="#" class="a_non_style text_write">
-              <b>
+              <b class="bigger-text">
                 {{ service.name }}
               </b>
             </a>
@@ -70,7 +70,7 @@
                 >
                   <a
                     href="#"
-                    class="btn btn-white"
+                    class="btn btn-white w-for-button"
                     @click="getDataAndGoTo(service.id, 'service')"
                   >
                     Дізнатися більше
@@ -97,7 +97,10 @@
                 />
               </div>
               <div class="goods_title pointer goods_visibility d-line-wrap">
-                <h3 class="heading-3 w-100 d-line">
+                <h3
+                  class="heading-3 w-100 d-line"
+                  @click="getDataAndGoTo(service.id, 'service')"
+                >
                   {{ service.name }}
                 </h3>
               </div>
@@ -243,11 +246,11 @@ export default {
 }
 
 .goods_visibility {
-  opacity: 1;
+  opacity: 0.6;
 }
 
 .goods_visibility:hover {
-  opacity: 0;
+  opacity: 1;
 }
 
 .heading-3 {
@@ -319,7 +322,6 @@ export default {
   align-items: center;
 }
 .btn-white {
-  width: 25%;
   height: 25%;
   background: rgb(132, 215, 229);
   color: #fff;

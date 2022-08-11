@@ -1,7 +1,7 @@
 <template>
   <div id="bg_gradient" class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
-    <div class="w-100">
+    <div v-if="!statusColOrRow" class="w-100">
       <div class="mb-5 name_page">
         <b>
           {{ namePage }}
@@ -12,14 +12,14 @@
           class="col-6 l-text w-100"
           :class="{ 'align-self-end ': w.id % 2 == 0 }"
         >
-          <div class="row mt-3 mb-3 desc_picture" v-if="w.id % 2 != 0">
+          <div class="row w-100 mt-3 mb-3 desc_picture" v-if="w.id % 2 != 0">
             <div class="row width-45 desc_picture_inner">
               <div class="mb-3 text-center">
                 <b class="bigger-text">
                   {{ w.name }}
                 </b>
               </div>
-              <div>
+              <div class="m-auto">
                 <p
                   class="lead text_write"
                   :class="{
@@ -33,16 +33,12 @@
               </div>
             </div>
             <div class="parent-for-img outer-img w-50">
-              <img
-                class="pad-2 pad-1 w-img shadow-dr"
-                :src="w.picture"
-                alt=""
-              />
+              <img class="w-img shadow-dr" :src="w.picture" alt="" />
             </div>
           </div>
-          <div class="row mt-3 mb-3 desc_picture_2" v-else>
-            <div class="outer-img w-50">
-              <img class="pad-2 w-img shadow-dr" :src="w.picture" alt="" />
+          <div class="row w-100 mr-0 mt-3 mb-3 desc_picture_2" v-else>
+            <div class="parent-for-img-not-rev outer-img w-50">
+              <img class="w-img shadow-dr" :src="w.picture" alt="" />
             </div>
             <div class="row width-45-mr desc_picture_inner">
               <div class="mb-3 text-center">
@@ -62,6 +58,77 @@
                   {{ w.description }}
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <div v-else class="w-100">
+      {{ statusColOrRow }}
+      <div class="mb-5 name_page">
+        <b>
+          {{ namePage }}
+        </b>
+      </div>
+      <div v-for="w in we" :key="w.id" class="col">
+        <div class="col-6 w-100" :class="{ 'align-self-end ': w.id % 2 == 0 }">
+          <div class="col w-100 m-auto desc_picture" v-if="w.id % 2 != 0">
+            <div class="row w-100 desc_picture_inner mt-4">
+              <div class="mb-3 text-center">
+                <b class="bigger-text">
+                  {{ w.name }}
+                </b>
+              </div>
+              <div class="m-auto">
+                <p
+                  class="lead text_write"
+                  :class="{
+                    'f-italic': w.font === 'К',
+                    'f-bold': w.font === 'Ж',
+                    'f-bold f-italic': w.font === 'ЖК',
+                  }"
+                >
+                  {{ w.description }}
+                </p>
+              </div>
+            </div>
+            <div class="parent-for-img-mobile outer-img">
+              <img
+                class="w-img-mobile shadow-dr m-2 border-15"
+                :src="w.picture"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="col w-100 m-auto desc_picture_2" v-else>
+            <div class="row w-100 desc_picture_inner mt-4">
+              <div class="mb-3 text-center">
+                <b class="bigger-text">
+                  {{ w.name }}
+                </b>
+              </div>
+              <div>
+                <p
+                  class="left-txt lead text_write"
+                  :class="{
+                    'f-italic': w.font === 'К',
+                    'f-bold': w.font === 'Ж',
+                    'f-bold f-italic': w.font === 'ЖК',
+                  }"
+                >
+                  {{ w.description }}
+                </p>
+              </div>
+            </div>
+            <div class="parent-for-img-mobile outer-img">
+              <img
+                class="w-img-mobile shadow-dr m-2 border-15"
+                :src="w.picture"
+                alt=""
+              />
             </div>
           </div>
         </div>
@@ -89,6 +156,7 @@ export default {
       navValue: 3,
       namePage: null,
       we: null,
+      statusColOrRow: false,
     };
   },
   created() {
@@ -99,8 +167,25 @@ export default {
       // Run
       this.getAboutUs()
         .then(() => this.getNamePage())
-        .then(() => this.listenLoad())
-        .then(() => this.listenResize());
+        .then(() => this.runnerListenResizeWindow());
+    },
+    async runnerListenResizeWindow() {
+      // Run listener for resize window
+      this.listenResizeWindow();
+      this.changeStatusDisplayBlocks();
+    },
+    listenResizeWindow() {
+      // Прослушивает изменение окна браузера
+      window.addEventListener("resize", this.changeStatusDisplayBlocks);
+    },
+    changeStatusDisplayBlocks() {
+      // Change statusColOrRow
+      let tempSize = document.querySelector("body").offsetWidth;
+      if (tempSize < 1000) {
+        this.statusColOrRow = true;
+      } else {
+        this.statusColOrRow = false;
+      }
     },
     async getAboutUs() {
       // Get info about owner site
@@ -112,59 +197,6 @@ export default {
     },
     getNamePage() {
       this.namePage = this.navigator[this.navValue].text;
-    },
-    getSizeBlock() {
-      if (
-        document.querySelector("#bg_gradient") &&
-        document.querySelector("#bg_gradient").offsetWidth < 1020
-      ) {
-        this.instancesClasses("div.desc_picture", "row", "col-not-reverse");
-        this.instancesClasses(
-          "div.desc_picture_inner",
-          ["width-45", "row"],
-          ["w-100", "pad-2"]
-        );
-        this.instancesClasses("div.desc_picture_2", "row", "col-reverse");
-        this.instancesClasses("img.pad-2", "nothing-class", "ml-auto");
-        this.instancesClasses("div.outer-img", "w-50", "ml-auto");
-
-        document.querySelector("p.left-txt").classList.remove("r-text");
-      } else if (
-        document.querySelector("#bg_gradient") &&
-        document.querySelector("#bg_gradient").offsetWidth >= 1020
-      ) {
-        this.instancesClasses("div.desc_picture", "col-not-reverse", "row");
-        this.instancesClasses(
-          "div.desc_picture_inner",
-          ["w-100", "pad-2"],
-          ["width-45", "row"]
-        );
-        this.instancesClasses("div.desc_picture_2", "col-reverse", "row");
-        this.instancesClasses("img.pad-2", "ml-auto", "nothing-class");
-        this.instancesClasses("div.outer-img", "ml-auto", "w-50");
-
-        document.querySelector("p.left-txt").classList.add("r-text");
-      }
-    },
-    listenResize() {
-      window.addEventListener("resize", this.getSizeBlock);
-    },
-    listenLoad() {
-      window.addEventListener("scroll", this.getSizeBlock);
-    },
-    instancesClasses(querySelectors, removes, adds) {
-      // Instance and remove class on selector
-      if (typeof removes == "string") {
-        document.querySelectorAll(querySelectors).forEach((elem) => {
-          elem.classList.remove(removes);
-          elem.classList.add(adds);
-        });
-      } else {
-        document.querySelectorAll(querySelectors).forEach((elem) => {
-          elem.classList.remove(removes[0], removes[1]);
-          elem.classList.add(adds[0], adds[1]);
-        });
-      }
     },
   },
 };

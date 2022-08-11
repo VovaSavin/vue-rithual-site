@@ -9,7 +9,7 @@
     </div>
     <div v-else :class="{ 'pb-3': !statusSideMenu }">
       <div>
-        <ContactsView />
+        <ContactsView :whoParent="headerComp" />
         <div class="under-side-border"></div>
         <header class="pos_absolute d-flex justify-content-center py-3 w-100">
           <ul class="nav">
@@ -120,6 +120,7 @@ export default {
       myId: this.newId,
       onePositon: null,
       statusSideMenu: false,
+      headerComp: "headerComponent",
     };
   },
   created() {

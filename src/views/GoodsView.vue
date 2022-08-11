@@ -1,7 +1,6 @@
 <template>
   <div id="goods_vue" class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
-
     <div class="w-100">
       <div class="row row justify-content-end name_page">
         <div class="col-6">
@@ -17,7 +16,7 @@
         </div>
       </div>
       <!-- <div :class="{ row: !rowOrCol, 'my-col': rowOrCol }"> -->
-      <div v-if="rowOrCol" class="my-col">
+      <div v-if="rowOrCol" class="my-col mt-5">
         <div
           v-for="good in rithualGoods"
           :key="good.id"
@@ -31,12 +30,16 @@
               :alt="good.name"
               width="355"
               height="255"
-              class="shadow-dr"
+              class="shadow-dr border-15"
             />
           </div>
           <div>
-            <a href="#" class="a_non_style text_write">
-              <b>
+            <a
+              href="#"
+              class="a_non_style text_write"
+              @click="getDataAndGoTo(good.id, 'goods')"
+            >
+              <b class="bigger-text">
                 {{ good.name }}
               </b>
             </a>
@@ -70,7 +73,7 @@
                 >
                   <a
                     href="#"
-                    class="btn btn-white"
+                    class="btn btn-white w-for-button"
                     @click="getDataAndGoTo(good.id, 'goods')"
                   >
                     Дізнатися більше
@@ -97,7 +100,10 @@
                 />
               </div>
               <div class="goods_title pointer goods_visibility d-line-wrap">
-                <h3 class="heading-3 w-100 d-line">
+                <h3
+                  class="heading-3 w-100 d-line"
+                  @click="getDataAndGoTo(good.id, 'goods')"
+                >
                   {{ good.name }}
                 </h3>
               </div>
@@ -253,11 +259,11 @@ export default {
 }
 
 .goods_visibility {
-  opacity: 1;
+  opacity: 0.6;
 }
 
 .goods_visibility:hover {
-  opacity: 0;
+  opacity: 1;
 }
 
 .heading-3 {
@@ -329,7 +335,6 @@ export default {
   align-items: center;
 }
 .btn-white {
-  width: 25%;
   height: 25%;
   background: rgb(132, 215, 229);
   color: #fff;
