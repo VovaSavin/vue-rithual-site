@@ -9,6 +9,23 @@ function navigator() {
 }
 
 
+function addSeparatorSpace(str) {
+    // Delete each element in string spaces
+    let newStr = "";
+    let space = " ";
+    let temp;
+    for (let x = 0; x < str.length; x++) {
+        temp = str[x] + space
+        if (str[x + 1] == " ") {
+            temp = str[x] + "_"
+        }
+        newStr += temp
+    }
+    return newStr;
+}
+
+
 export {
     navigator,
+    addSeparatorSpace,
 }

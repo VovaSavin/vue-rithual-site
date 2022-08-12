@@ -2,6 +2,10 @@
     min-height: 100%;
 }
 
+.h-500 {
+    height: 450px;
+}
+
 .c-black {
     color: black;
 }
@@ -29,6 +33,10 @@
 
 .bigger-text {
     font-size: 20px;
+}
+
+.most-bigger-text {
+    font-size: 22px;
 }
 
 .f-italic {
@@ -68,6 +76,13 @@
     background: linear-gradient(#544f5a, rgb(253, 253, 253));
 }
 
+.bg_block_reverse_double {
+    background: linear-gradient(rgb(253, 253, 253),
+            #dcd8e0 40%,
+            #ccc9cf 50%,
+            #dcd8e0 60%, rgb(253, 253, 253));
+}
+
 .blur-img {
     filter: blur(2px);
 }
@@ -104,6 +119,10 @@
 
 .pad-1 {
     margin-left: 3rem !important;
+}
+
+.pd-10 {
+    padding-top: 10% !important;
 }
 
 .mar-1 {
@@ -238,6 +257,10 @@
 }
 
 /* Services orGoods */
+.space-between-letters {
+    letter-spacing: 1rem;
+}
+
 .w-for-button {
     width: 228px !important;
 }

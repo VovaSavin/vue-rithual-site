@@ -4,7 +4,7 @@
     <div class="w-100">
       <div class="row row justify-content-end name_page">
         <div class="col-6">
-          <b>
+          <b class="space-between-letters most-bigger-text">
             {{ namePage }}
           </b>
         </div>

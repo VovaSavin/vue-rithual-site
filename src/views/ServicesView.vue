@@ -5,7 +5,7 @@
     <div class="w-100">
       <div class="row row justify-content-end name_page">
         <div class="col-6">
-          <b>
+          <b class="space-between-letters most-bigger-text">
             {{ namePage }}
           </b>
         </div>
@@ -133,7 +133,7 @@
 
 <script>
 // @ is an alias to /src
-import { navigator } from "@/assets/data";
+import { navigator, addSeparatorSpace } from "@/assets/data";
 import FooterRithual from "@/components/FooterRithual.vue";
 import SwitchButton from "@/components/SwitchButton.vue";
 import HeaderRithual from "@/components/HeaderRithual.vue";

@@ -19,7 +19,7 @@
         </svg>
       </div>
       <div v-else class="u-custom-menu u-nav-container-collapse w-100 h-100">
-        <div class="fix">
+        <div class="w-100 fix">
           <div class="u-menu-close mt-3">
             <svg
               id="close_btn"
@@ -121,7 +121,11 @@ export default {
 .u-align-center {
   display: table;
   font-size: 1.25rem;
-  margin: 20px auto 0;
+  /* margin: 20px auto 0; */
+  margin-top: 20px;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: 80px;
   text-align: left;
   list-style: none;
   padding: 0;
@@ -173,11 +177,12 @@ svg:hover {
   font-style: initial;
   letter-spacing: initial;
   font-weight: initial;
-  margin-right: 15px;
+  margin-right: 1px;
 }
 .fix {
   position: fixed;
-  left: -20px;
+  left: -55px;
+  top: 0;
   z-index: 555;
 }
 </style>
