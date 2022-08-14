@@ -3,15 +3,17 @@
     <HeaderRithual :valueNav="navValue" />
 
     <div class="w-100">
-      <div class="mb-5 name_page f-bold">
-        {{ chooseData().name }}
+      <div class="mt-5 pad-mob-top mb-5 name_page f-bold">
+        <span class="f-decor">
+          {{ chooseData().name }}
+        </span>
       </div>
       <div class="m-3">
         <img
           height="350"
           :src="chooseData().picture"
           :alt="chooseData().picture"
-          class="w-100 blur-img"
+          class="w-100"
         />
       </div>
       <div class="m-3 f-bold">
@@ -119,5 +121,9 @@ export default {
 }
 .prices-table table td {
   padding: 15px 20px;
+}
+
+.f-decor {
+  font-family: "Abril Fatface";
 }
 </style>

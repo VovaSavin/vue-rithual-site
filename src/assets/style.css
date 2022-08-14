@@ -68,8 +68,12 @@
     background: linear-gradient(rgb(253, 253, 253), #efedf0);
 }
 
-.bg_gray_gradient_once {
+.bg_gray_gradient_prod {
     background: linear-gradient(#f6f4f7, #bbbbbb) !important;
+}
+
+.bg_gray_gradient_prod_mobile {
+    background: linear-gradient(#f0f0f0, #bbbbbb) !important;
 }
 
 .bg_gray_gradient_once_about {
@@ -293,6 +297,10 @@
     -webkit-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
+}
+
+.pad-mob-top {
+    padding-top: 40px;
 }
 
 /* SideNavigator */

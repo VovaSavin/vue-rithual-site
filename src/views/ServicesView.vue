@@ -1,12 +1,14 @@
 <template>
   <div id="services_vue" class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
-    <div class="w-100">
+    <div class="bg_gray_gradient_prod_mobile pad-mob-top w-100">
       <div class="row row justify-content-end name_page">
         <div class="col-6 col-switch w-100">
-          <b class="space-between-letters most-bigger-text">
-            {{ namePage }}
-          </b>
+          <h4>
+            <b class="space-between-letters">
+              {{ namePage }}
+            </b>
+          </h4>
         </div>
         <div class="col-switch">
           <SwitchButton
@@ -46,7 +48,7 @@
       <div
         v-else
         id="carouselExampleControls"
-        class="bg_gray_gradient_once carousel slide height-500"
+        class="bg_gray_gradient_prod_mobile carousel slide height-500"
         data-bs-ride="carousel"
       >
         <div class="carousel-inner height-500">
