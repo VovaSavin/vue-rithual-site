@@ -84,9 +84,11 @@
             :key="head.id"
             :src="head.image"
             :alt="head.name"
-            class="w-100 blur-img"
+            class="w-100"
+            height="500"
           />
         </div>
+        <div class="w-100 h-25 low_display_head_img"></div>
       </div>
     </div>
   </div>
@@ -266,7 +268,7 @@ export default {
   border-radius: 7px;
 }
 .bg_gray {
-  background-color: #a8afb6;
+  background-color: #eff7ff;
 }
 .pos_absolute {
   position: absolute;
@@ -280,7 +282,7 @@ export default {
 
 .border_gr {
   box-shadow: 5px 5px 5px;
-  border: 1px solid gray;
+  border: 1px solid rgb(255, 254, 254);
   border-radius: 7px;
 }
 .main_nav {
@@ -298,7 +300,7 @@ export default {
 }
 .main_nav:hover {
   opacity: 1;
-  background: rgb(211, 205, 205);
+  background: #fff;
 }
 .border_around:hover {
   border: 2px solid rgb(211, 205, 205);
@@ -313,11 +315,24 @@ export default {
 }
 
 .hov_link_wrapper:hover {
-  background-color: rgb(204, 202, 202);
+  background-color: white;
   color: rgb(197, 156, 81);
 }
 
 .svg-span-header {
   vertical-align: baseline;
+}
+.low_display_head_img {
+  height: 110% !important;
+  position: absolute;
+  top: 0px;
+  z-index: 333;
+  background: linear-gradient(
+    #ffffff00,
+    rgba(255, 255, 255, 0.712),
+    #a5d6efe7,
+    #a5d6ef,
+    #efedf0
+  );
 }
 </style>

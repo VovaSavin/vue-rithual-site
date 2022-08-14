@@ -1,8 +1,8 @@
 <template>
   <div id="bg_gradient" class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
-    <div v-if="!statusColOrRow" class="w-100">
-      <div class="mb-5 name_page">
+    <div v-if="!statusColOrRow" class="bg_gray_gradient_once_about pt-5 w-100">
+      <div class="pt-5 mb-5 name_page">
         <b>
           {{ namePage }}
         </b>
@@ -66,9 +66,8 @@
     <!--  -->
     <!--  -->
     <!--  -->
-    <div v-else class="w-100">
-      {{ statusColOrRow }}
-      <div class="mb-5 name_page">
+    <div v-else class="pt-5 w-100">
+      <div class="pt-5 mb-5 name_page">
         <b>
           {{ namePage }}
         </b>

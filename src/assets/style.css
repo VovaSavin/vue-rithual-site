@@ -65,7 +65,15 @@
 }
 
 .bg_gray_gradient {
-    background: linear-gradient(rgb(253, 253, 253), #544f5a);
+    background: linear-gradient(rgb(253, 253, 253), #efedf0);
+}
+
+.bg_gray_gradient_once {
+    background: linear-gradient(#f6f4f7, #bbbbbb) !important;
+}
+
+.bg_gray_gradient_once_about {
+    background: linear-gradient(#f4f2f4, #bbbbbb) !important;
 }
 
 .bg_block {
@@ -259,6 +267,13 @@
 /* Services orGoods */
 .space-between-letters {
     letter-spacing: 1rem;
+}
+
+.col-switch {
+    flex: 0 0 auto;
+    width: 25%;
+    position: absolute;
+    z-index: 9999;
 }
 
 .w-for-button {

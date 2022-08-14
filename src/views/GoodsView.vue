@@ -3,12 +3,12 @@
     <HeaderRithual :valueNav="navValue" />
     <div class="w-100">
       <div class="row row justify-content-end name_page">
-        <div class="col-6">
+        <div class="col-6 col-switch w-100">
           <b class="space-between-letters most-bigger-text">
             {{ namePage }}
           </b>
         </div>
-        <div class="col-3">
+        <div class="col-switch">
           <SwitchButton
             :innerRowOrCol="rowOrCol"
             @checked="rowOrCol = !rowOrCol"
@@ -50,13 +50,13 @@
       <div
         v-else
         id="carouselExampleControls"
-        class="carousel slide height-500"
+        class="bg_gray_gradient_once carousel slide height-500"
         data-bs-ride="carousel"
       >
         <div class="carousel-inner height-500">
           <div v-for="good in rithualGoods" :key="good.id">
             <div
-              class="carousel-item height-500"
+              class="carousel-item height-500 mt-5"
               :class="{
                 active: good.id == someNumber,
                 '': good.id != someNumber,

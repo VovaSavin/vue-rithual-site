@@ -1,15 +1,14 @@
 <template>
   <div id="services_vue" class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
-
     <div class="w-100">
       <div class="row row justify-content-end name_page">
-        <div class="col-6">
+        <div class="col-6 col-switch w-100">
           <b class="space-between-letters most-bigger-text">
             {{ namePage }}
           </b>
         </div>
-        <div class="col-3">
+        <div class="col-switch">
           <SwitchButton
             :innerRowOrCol="rowOrCol"
             @checked="rowOrCol = !rowOrCol"
@@ -34,7 +33,7 @@
               class="shadow-dr mb-1 border-15"
             />
           </div>
-          <div>
+          <div class="">
             <a href="#" class="a_non_style text_write">
               <b class="bigger-text">
                 {{ service.name }}
@@ -47,13 +46,13 @@
       <div
         v-else
         id="carouselExampleControls"
-        class="carousel slide height-500"
+        class="bg_gray_gradient_once carousel slide height-500"
         data-bs-ride="carousel"
       >
         <div class="carousel-inner height-500">
           <div v-for="service in rithualServices" :key="service.id">
             <div
-              class="carousel-item height-500"
+              class="carousel-item height-500 mt-5"
               :class="{
                 active: service.id == someNumber,
                 '': service.id != someNumber,
@@ -98,7 +97,7 @@
               </div>
               <div class="goods_title pointer goods_visibility d-line-wrap">
                 <h3
-                  class="heading-3 w-100 d-line"
+                  class="col-switch heading-3 w-100 d-line"
                   @click="getDataAndGoTo(service.id, 'service')"
                 >
                   {{ service.name }}
