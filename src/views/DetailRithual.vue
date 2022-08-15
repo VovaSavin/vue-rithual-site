@@ -3,9 +3,11 @@
     <HeaderRithual :valueNav="navValue" />
 
     <div class="w-100">
-      <div class="mt-5 pad-mob-top mb-5 name_page f-bold">
+      <div class="pos_desc_abs_detail c-white name_page">
         <span class="f-decor">
-          {{ chooseData().name }}
+          <h1 class="pointer name_hover">
+            {{ chooseData().name }}
+          </h1>
         </span>
       </div>
       <div class="m-3">
@@ -13,7 +15,7 @@
           height="350"
           :src="chooseData().picture"
           :alt="chooseData().picture"
-          class="w-100"
+          class="w-100 border-15 margin-t-80"
         />
       </div>
       <div class="m-3 f-bold">
@@ -88,13 +90,20 @@ export default {
 </script>
 
 <style scoped>
-.pos_desc_abs {
+.pos_desc_abs,
+.pos_desc_abs_detail {
   position: absolute;
   z-index: 99;
   top: 50%;
   left: 20%;
   text-align: right;
   padding: 2rem;
+}
+
+.pos_desc_abs_detail {
+  top: 130%;
+  left: 0;
+  width: 100% !important;
 }
 
 .my-container {
@@ -124,6 +133,19 @@ export default {
 }
 
 .f-decor {
-  font-family: "Abril Fatface";
+  font-family: "Abril Fatface" !important;
+  text-align: center !important;
+}
+.margin-t-80 {
+  margin-top: 80px;
+}
+
+.name_hover:hover {
+  font-size: calc(1.675rem + 1.5vw);
+  background-color: rgba(129, 129, 129, 0.603);
+  border-radius: 15px;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 </style>
