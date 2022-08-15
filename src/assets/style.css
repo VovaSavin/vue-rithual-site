@@ -273,6 +273,10 @@
     letter-spacing: 1rem;
 }
 
+.space-between-letters-06 {
+    letter-spacing: .4rem;
+}
+
 .col-switch {
     flex: 0 0 auto;
     width: 25%;

@@ -22,7 +22,7 @@
         <div
           v-for="good in rithualGoods"
           :key="good.id"
-          class="col-4 mb-4 pointer my-min-width"
+          class="col-4 mt-2 mb-4 pointer my-min-width"
           :class="{ 'm-my-auto': rowOrCol }"
           @click="getDataAndGoTo(good.id, 'goods')"
         >
@@ -35,13 +35,13 @@
               class="shadow-dr border-15"
             />
           </div>
-          <div>
+          <div class="pt-3">
             <a
               href="#"
               class="a_non_style text_write"
               @click="getDataAndGoTo(good.id, 'goods')"
             >
-              <b class="bigger-text">
+              <b class="bigger-text space-between-letters-06">
                 {{ good.name }}
               </b>
             </a>
@@ -251,10 +251,10 @@ export default {
 .a_non_style {
   text-decoration: none !important;
   padding: 1rem;
-  color: #444444;
+  color: #747474d3;
 }
 .a_non_style:hover {
-  color: #2392be;
+  color: #636363;
 }
 .wid-500 {
   height: 450px;
