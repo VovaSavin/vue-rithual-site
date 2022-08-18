@@ -268,6 +268,11 @@
     box-shadow: 0 0.5rem 1rem rgb(0, 0, 0) !important;
 }
 
+.f-decor {
+    font-family: "Abril Fatface" !important;
+    text-align: center !important;
+}
+
 /* Services orGoods */
 .space-between-letters {
     letter-spacing: 1rem;
@@ -281,7 +286,14 @@
     flex: 0 0 auto;
     width: 25%;
     position: absolute;
+}
+
+.inx-9999 {
     z-index: 9999;
+}
+
+.inx-9998 {
+    z-index: 9998;
 }
 
 .w-for-button {

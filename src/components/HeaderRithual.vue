@@ -44,7 +44,7 @@
                       href="#"
                       @click="getDataAndGoTo(serv.id, 'service')"
                       v-if="show"
-                      class="a_non_style"
+                      class="a_non_style f-decor bigger-text"
                     >
                       {{ serv.name }}
                     </a>
@@ -68,7 +68,7 @@
                       href="#"
                       @click="getDataAndGoTo(goods.id, 'goods')"
                       v-if="show_2"
-                      class="a_non_style"
+                      class="a_non_style f-decor bigger-text"
                     >
                       {{ goods.name }}
                     </a>

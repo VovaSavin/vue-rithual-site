@@ -3,14 +3,14 @@
     <HeaderRithual :valueNav="navValue" />
     <div class="bg_gray_gradient_prod_mobile pad-mob-top w-100">
       <div class="row row justify-content-end name_page">
-        <div class="col-6 col-switch w-100">
+        <div class="col-6 col-switch w-100" :class="{ 'inx-9999': !rowOrCol }">
           <h4>
-            <b class="space-between-letters">
+            <b class="space-between-letters f-decor">
               {{ namePage }}
             </b>
           </h4>
         </div>
-        <div class="col-switch">
+        <div class="col-switch inx-9999">
           <SwitchButton
             :innerRowOrCol="rowOrCol"
             @checked="rowOrCol = !rowOrCol"
@@ -71,7 +71,7 @@
                 >
                   <a
                     href="#"
-                    class="btn btn-white w-for-button"
+                    class="btn btn-white w-for-button f-decor"
                     @click="getDataAndGoTo(service.id, 'service')"
                   >
                     Дізнатися більше

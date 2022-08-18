@@ -132,10 +132,7 @@ export default {
   padding: 15px 20px;
 }
 
-.f-decor {
-  font-family: "Abril Fatface" !important;
-  text-align: center !important;
-}
+
 .margin-t-80 {
   margin-top: 80px;
 }
