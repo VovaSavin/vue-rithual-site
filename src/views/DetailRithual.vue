@@ -101,7 +101,7 @@ export default {
 }
 
 .pos_desc_abs_detail {
-  top: 130%;
+  top: 140%;
   left: 0;
   width: 100% !important;
 }
@@ -131,7 +131,6 @@ export default {
 .prices-table table td {
   padding: 15px 20px;
 }
-
 
 .margin-t-80 {
   margin-top: 80px;

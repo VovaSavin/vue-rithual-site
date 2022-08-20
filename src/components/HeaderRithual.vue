@@ -11,73 +11,85 @@
       <div>
         <ContactsView :whoParent="headerComp" />
         <div class="under-side-border"></div>
-        <header class="pos_absolute d-flex justify-content-center py-3 w-100">
-          <ul class="nav">
-            <li class="nav-item m-2" v-for="nav in navigator" :key="nav.value">
-              <div class="w_nav_main">
-                <span
-                  class="nav-link main_nav border_around f-bold"
-                  :class="{ active_main: nav.value == valueNavigate }"
-                  @mouseenter="showAndHide(nav.value)"
-                  @mouseleave="showAndHide(nav.value)"
-                  @click="goToPage(nav.link, nav.value, valueNavigate)"
-                >
-                  {{ nav.text }}
-                </span>
-              </div>
-              <div
-                v-if="nav.value == 1"
-                :id="setId(nav.value, 'nav')"
-                class="pos_absolute w_nav_main mt-1"
-                :class="{ border_gr: show == true, bg_gray: show == true }"
-                @mouseenter="show = true"
-                @mouseleave="show = false"
-              >
-                <div>
-                  <div
-                    v-for="serv in rithualServices"
-                    :key="serv.id"
-                    @click="getDataAndGoTo(serv.id, 'service')"
-                    class="m-1 pointer hov_link_wrapper"
+        <header class="pos_stick d-flex justify-content-center py-3 w-100">
+          <ul class="nav_t stick_follow">
+            <li
+              class="nav-item h-min-c marg-for-head"
+              v-for="nav in navigator"
+              :key="nav.value"
+            >
+              <div>
+                <div class="w_nav_main">
+                  <span
+                    class="nav-link main_nav border_around f-bold"
+                    :class="{ active_main: nav.value == valueNavigate }"
+                    @mouseenter="showAndHide(nav.value)"
+                    @mouseleave="showAndHide(nav.value)"
+                    @click="goToPage(nav.link, nav.value, valueNavigate)"
                   >
-                    <a
-                      href="#"
+                    {{ nav.text }}
+                  </span>
+                </div>
+                <div
+                  v-if="nav.value == 1"
+                  :id="setId(nav.value, 'nav')"
+                  class="pos_absolute w_nav_main"
+                  :class="{ border_gr: show == true, bg_gray: show == true }"
+                  @mouseenter="show = true"
+                  @mouseleave="show = false"
+                >
+                  <div>
+                    <div
+                      v-for="serv in rithualServices"
+                      :key="serv.id"
                       @click="getDataAndGoTo(serv.id, 'service')"
-                      v-if="show"
-                      class="a_non_style f-decor bigger-text"
+                      class="m-1 pointer hov_link_wrapper"
                     >
-                      {{ serv.name }}
-                    </a>
+                      <a
+                        href="#"
+                        @click="getDataAndGoTo(serv.id, 'service')"
+                        v-if="show"
+                        class="a_non_style f-decor bigger-text"
+                      >
+                        {{ serv.name }}
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                v-else-if="nav.value == 2"
-                class="pos_absolute w_nav_main mt-1"
-                :class="{ border_gr: show_2 == true, bg_gray: show_2 == true }"
-                @mouseenter="show_2 = true"
-                @mouseleave="show_2 = false"
-              >
-                <div>
-                  <div
-                    v-for="goods in rithualGoods"
-                    :key="goods.id"
-                    class="m-1 pointer hov_link_wrapper"
-                  >
-                    <a
-                      href="#"
-                      @click="getDataAndGoTo(goods.id, 'goods')"
-                      v-if="show_2"
-                      class="a_non_style f-decor bigger-text"
+                <div
+                  v-else-if="nav.value == 2"
+                  class="pos_absolute w_nav_main"
+                  :class="{
+                    border_gr: show_2 == true,
+                    bg_gray: show_2 == true,
+                  }"
+                  @mouseenter="show_2 = true"
+                  @mouseleave="show_2 = false"
+                >
+                  <div>
+                    <div
+                      v-for="goods in rithualGoods"
+                      :key="goods.id"
+                      class="m-1 pointer hov_link_wrapper"
                     >
-                      {{ goods.name }}
-                    </a>
+                      <a
+                        href="#"
+                        @click="getDataAndGoTo(goods.id, 'goods')"
+                        v-if="show_2"
+                        class="a_non_style f-decor bigger-text"
+                      >
+                        {{ goods.name }}
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </li>
           </ul>
         </header>
+        <div class="pos_absolute change_position">
+          <p class="f-decor c-white space-between-letters">Ритуальні послуги</p>
+        </div>
         <div class="w-100">
           <img
             v-for="head in headerData"
@@ -123,6 +135,7 @@ export default {
       onePositon: null,
       statusSideMenu: false,
       headerComp: "headerComponent",
+      statusShowNavigator: false,
     };
   },
   created() {
@@ -250,11 +263,46 @@ export default {
         this.statusSideMenu = !this.statusSideMenu;
       }
     },
+    showOrHideNavigation() {
+      this.statusShowNavigator = !this.statusShowNavigator;
+    },
   },
 };
 </script>
 
 <style scoped>
+.nav_t {
+  --bs-nav-link-padding-x: 1rem;
+  --bs-nav-link-padding-y: 0.5rem;
+  --bs-nav-link-font-weight: ;
+  --bs-nav-link-color: var(--bs-link-color);
+  --bs-nav-link-hover-color: var(--bs-link-hover-color);
+  --bs-nav-link-disabled-color: #6c757d;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  height: 100%;
+  width: 100%;
+}
+.back-color {
+  background-color: #a1a1a198 !important;
+}
+
+.main_indx {
+  z-index: 99999;
+}
+.pad-90 {
+  padding-left: 90%;
+}
+
+.pad-90-on {
+  padding-left: 10%;
+}
+.pad-t-20 {
+  padding-top: 1rem;
+}
 .nav-pills {
   --bs-nav-pills-border-radius: 0.375rem;
   --bs-nav-pills-link-active-color: #fff;
@@ -270,11 +318,24 @@ export default {
 .bg_gray {
   background-color: #eff7ff;
 }
-.pos_absolute {
-  position: absolute;
+.pos_stick {
+  position: sticky;
   height: max-content;
+  top: 5px;
   z-index: 999;
 }
+
+.pos_absolute {
+  position: absolute;
+}
+
+.change_position {
+  top: 55%;
+  left: 25%;
+  z-index: 998;
+  font-size: 52px;
+}
+
 .a_non_style {
   text-decoration: none !important;
   color: #444444;
@@ -334,5 +395,17 @@ export default {
     #a5d6ef,
     #efedf0
   );
+}
+
+.change_pos_top {
+  top: 75px !important;
+}
+
+.change_pos_top_10 {
+  top: 2rem !important;
+}
+
+.change_pos {
+  left: 97%;
 }
 </style>
