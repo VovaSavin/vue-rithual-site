@@ -10,7 +10,7 @@
             </b>
           </h4>
         </div>
-        <div class="col-switch inx-9999">
+        <div v-if="rowOrCol" class="col-switch inx-9999 top-switch">
           <SwitchButton
             :innerRowOrCol="rowOrCol"
             @checked="rowOrCol = !rowOrCol"

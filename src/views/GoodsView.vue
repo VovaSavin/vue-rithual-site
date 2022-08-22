@@ -10,7 +10,8 @@
             </b>
           </h4>
         </div>
-        <div class="col-switch inx-9999">
+
+        <div v-if="rowOrCol" class="col-switch inx-9999 top-switch">
           <SwitchButton
             :innerRowOrCol="rowOrCol"
             @checked="rowOrCol = !rowOrCol"
@@ -239,7 +240,7 @@ export default {
       // Меняет верхнюю навигацию сайта
       console.log("hello");
       let tempSize = document.querySelector("body").offsetWidth;
-      if (tempSize < 685) {
+      if (tempSize < 830) {
         this.rowOrCol = true;
       }
     },

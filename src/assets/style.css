@@ -101,7 +101,7 @@
 }
 
 .bg_block_reverse_double {
-    background: linear-gradient(rgb(253, 253, 253),
+    background: linear-gradient(rgb(238, 236, 236),
             #dcd8e0 40%,
             #ccc9cf 50%,
             #dcd8e0 60%, rgb(253, 253, 253));
@@ -304,8 +304,12 @@
     position: absolute;
 }
 
+.top-switch {
+    top: 15px;
+}
+
 .inx-9999 {
-    z-index: 9999;
+    z-index: 998;
 }
 
 .inx-9998 {
@@ -346,4 +350,21 @@
     border-top-width: 0px;
     border-top: 1px solid;
     opacity: 0.25;
+}
+
+/* HEADER */
+.pos_fix,
+.pos_fix_contact {
+    position: fixed;
+    top: 55px;
+    z-index: 999;
+}
+
+.pos_fix_contact {
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    text-align: right;
+    height: 45px;
+    background-color: white;
 }

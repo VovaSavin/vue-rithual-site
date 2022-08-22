@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{ pos_fix_contact: whoParent === 'headerComponent' }">
     <div v-for="cnt in contacts" :key="cnt.id" class="pt-1">
       <div v-if="cnt.our_address" class="parent-for-img c-blue">
         <div class="r-text" :class="{ 'w-100': whoParent === 'sideComponent' }">

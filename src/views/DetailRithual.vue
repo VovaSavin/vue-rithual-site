@@ -3,7 +3,7 @@
     <HeaderRithual :valueNav="navValue" />
 
     <div class="w-100">
-      <div class="pos_desc_abs_detail c-white name_page">
+      <div class="pos_desc_abs_detail c-white name_page" v-if="!statusSideMenu">
         <span class="f-decor">
           <h1 class="pointer name_hover">
             {{ chooseData().name }}
@@ -18,8 +18,8 @@
           class="w-100 border-15 margin-t-80"
         />
       </div>
-      <div class="m-3 f-bold">
-        <div class="f-italic" v-html="chooseData().description"></div>
+      <div class="m-3">
+        <div class="" v-html="chooseData().description"></div>
       </div>
       <section class="prices">
         <div class="my-container">
@@ -66,6 +66,7 @@ export default {
       namePage: null,
       onePositon: this.dataDetail,
       localOnePosition: localStorage.getItem("detail"),
+      statusSideMenu: false,
     };
   },
   created() {
@@ -75,6 +76,7 @@ export default {
     runApp() {
       // Run
       this.onePositon = JSON.parse(this.localOnePosition);
+      this.runnerListenResizeWindow();
     },
     chooseData() {
       // Choose getter detatil data for goods or service
@@ -82,6 +84,24 @@ export default {
         return this.dataDetail;
       } else {
         return this.onePositon;
+      }
+    },
+    async runnerListenResizeWindow() {
+      // Run listener for resize window
+      this.listenResizeWindow();
+      this.changeNavigator();
+    },
+    listenResizeWindow() {
+      // Прослушивает изменение окна браузера
+      window.addEventListener("resize", this.changeNavigator);
+    },
+    changeNavigator() {
+      // Меняет верхнюю навигацию сайта
+      let tempSize = document.querySelector("body").offsetWidth;
+      if (tempSize < 830) {
+        this.statusSideMenu = true;
+      } else {
+        this.statusSideMenu = false;
       }
     },
   },
@@ -100,8 +120,9 @@ export default {
   padding: 2rem;
 }
 
-.pos_desc_abs_detail {
-  top: 140%;
+.pos_desc_abs_detail,
+.pos_desc_abs_detail_mob {
+  top: 125%;
   left: 0;
   width: 100% !important;
 }
