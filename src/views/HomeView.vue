@@ -20,15 +20,6 @@
               </blockquote>
               <hr />
             </div>
-            <!-- <div class="w-100">
-              <div class="main-screen__images">
-                <img
-                  class="w-100 h-100"
-                  src="https://zakhidritual.com.ua/wp-content/uploads/2020/11/single-services-image-scaled.jpg"
-                  alt="oo"
-                />
-              </div>
-            </div> -->
           </div>
           <div>
             <img :src="img.image" alt="image" class="w-100" />

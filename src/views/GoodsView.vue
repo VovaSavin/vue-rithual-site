@@ -192,7 +192,7 @@ export default {
       // Get data about service or goods
       if (vName == "service") {
         this.onePositon = await fetch(
-          `${this.$store.getters.getServerUrl}/rith_services/${id}`
+          `${this.$store.getters.getServerUrl}/rith_services/${id}/`
         )
           .then((response) => response.json())
           .catch(function (error) {
@@ -200,7 +200,7 @@ export default {
           });
       } else if (vName == "goods") {
         this.onePositon = await fetch(
-          `${this.$store.getters.getServerUrl}/rith_goods/${id}`
+          `${this.$store.getters.getServerUrl}/rith_goods/${id}/`
         )
           .then((response) => response.json())
           .catch(function (error) {

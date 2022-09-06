@@ -134,6 +134,12 @@
               />
             </svg>
           </a>
+          <a
+            href="/"
+            class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
+          >
+            VovaSavin
+          </a>
         </div>
       </div>
     </footer>

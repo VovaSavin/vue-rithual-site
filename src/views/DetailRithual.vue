@@ -10,7 +10,7 @@
           </h1>
         </span>
       </div>
-      <div class="m-3">
+      <div class="margin-3">
         <img
           height="350"
           :src="chooseData().picture"
@@ -80,6 +80,7 @@ export default {
     },
     chooseData() {
       // Choose getter detatil data for goods or service
+      window.scrollTo(0, 500);
       if (this.dataDetail) {
         return this.dataDetail;
       } else {
@@ -122,7 +123,7 @@ export default {
 
 .pos_desc_abs_detail,
 .pos_desc_abs_detail_mob {
-  top: 125%;
+  top: 135%;
   left: 0;
   width: 100% !important;
 }

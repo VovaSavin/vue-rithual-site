@@ -11,7 +11,9 @@
       <div>
         <ContactsView :whoParent="headerComp" />
         <div class="under-side-border"></div>
-        <header class="pos_fix d-flex justify-content-center py-3 w-100">
+        <header
+          class="pos_fix d-flex justify-content-center py-3 w-100 bg_white"
+        >
           <ul class="nav_t stick_follow">
             <li
               class="nav-item h-min-c marg-for-head"
@@ -206,7 +208,7 @@ export default {
       // Get data about service or goods
       if (vName == "service") {
         this.onePositon = await fetch(
-          `${this.$store.getters.getServerUrl}/rith_services/${id}`
+          `${this.$store.getters.getServerUrl}/rith_services/${id}/`
         )
           .then((response) => response.json())
           .catch(function (error) {
@@ -214,7 +216,7 @@ export default {
           });
       } else if (vName == "goods") {
         this.onePositon = await fetch(
-          `${this.$store.getters.getServerUrl}/rith_goods/${id}`
+          `${this.$store.getters.getServerUrl}/rith_goods/${id}/`
         )
           .then((response) => response.json())
           .catch(function (error) {

@@ -67,6 +67,10 @@
     text-align: right !important;
 }
 
+.bg_white {
+    background-color: rgba(255, 255, 255, 0.67);
+}
+
 .header-main {
     background: linear-gradient(#342d3d, #777777);
 
@@ -367,4 +371,9 @@
     text-align: right;
     height: 45px;
     background-color: white;
+}
+
+.margin-3 {
+    margin: 1rem;
+    margin-top: 80px;
 }
