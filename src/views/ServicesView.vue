@@ -3,15 +3,23 @@
     <HeaderRithual :valueNav="navValue" />
     <div class="bg_gray_gradient_prod_mobile pad-mob-top w-100">
       <div class="row row justify-content-end name_page">
-        <div class="col-6 col-switch w-100" :class="{ 'inx-9999': !rowOrCol }">
-          <h4>
-            <b class="space-between-letters f-decor">
+        <div
+          class="pt-4 col-6 col-switch w-100"
+          :class="{ 'inx-9999': !rowOrCol }"
+        >
+          <h5>
+            <p class="space-between-letters f-decor f-bold">
               {{ namePage }}
-            </b>
-          </h4>
+            </p>
+          </h5>
         </div>
-        <div v-if="rowOrCol" class="col-switch inx-9999 top-switch">
-          hddhhdhdhdhdhdd
+        <div
+          class="col-switch inx-9999"
+          :class="{
+            'top-switch col-switch': !ifChangeWidth,
+            'top-switch-mob col-switch-mob': ifChangeWidth,
+          }"
+        >
           <SwitchButton
             :innerRowOrCol="rowOrCol"
             @checked="rowOrCol = !rowOrCol"
@@ -19,7 +27,7 @@
         </div>
       </div>
       <!-- <div :class="{ row: !rowOrCol, 'my-col': rowOrCol }"> -->
-      <div v-if="rowOrCol" class="my-col mt-5">
+      <div v-if="rowOrCol" class="my-col mar-t-5">
         <div
           v-for="service in rithualServices"
           :key="service.id"
@@ -157,6 +165,7 @@ export default {
       onePositon: null,
       someNumber: 1,
       lenListRithual: null,
+      ifChangeWidth: false,
     };
   },
   created() {
@@ -167,7 +176,8 @@ export default {
       // Run
       this.getServices()
         .then(() => this.getNamePage())
-        .then(() => this.getLength(this.rithualServices));
+        .then(() => this.getLength(this.rithualServices))
+        .then(() => this.runnerListenResizeWindow());
     },
     async getServices() {
       // Get data of rithual services
@@ -230,6 +240,24 @@ export default {
       // Get length list
       this.lenListRithual = list.length;
     },
+    async runnerListenResizeWindow() {
+      // Run listener for resize window
+      this.listenResizeWindow();
+      this.changeDisplaySwitch();
+    },
+    listenResizeWindow() {
+      // Прослушивает изменение окна браузера
+      window.addEventListener("resize", this.changeDisplaySwitch);
+    },
+    changeDisplaySwitch() {
+      // Меняет верхнюю навигацию сайта
+      let tempSize = document.querySelector("body").offsetWidth;
+      if (tempSize < 830) {
+        this.ifChangeWidth = true;
+      } else {
+        this.ifChangeWidth = false;
+      }
+    },
   },
 };
 </script>
@@ -237,7 +265,6 @@ export default {
 <style scoped>
 .a_non_style {
   text-decoration: none !important;
-  padding: 1rem;
   color: #747474d3;
 }
 .a_non_style:hover {

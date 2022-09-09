@@ -89,14 +89,12 @@
             </li>
           </ul>
         </header>
-        <div class="pos_absolute change_position">
-          <p class="f-decor c-white space-between-letters">
-            Ритуальні послуги
-            <br />
-            та
-            <br />
-            Ритуальні товари
-          </p>
+        <div class="w-100 pos_absolute change_position">
+          <div class="f-decor c-white space-between-letters">
+            <p>Ритуальні послуги</p>
+            <p>та</p>
+            <p>Ритуальні товари</p>
+          </div>
         </div>
         <div class="w-100">
           <img
@@ -339,7 +337,6 @@ export default {
 
 .change_position {
   top: 55%;
-  left: 25%;
   z-index: 998;
   font-size: 52px;
 }

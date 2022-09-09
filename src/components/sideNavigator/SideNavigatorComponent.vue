@@ -1,7 +1,10 @@
 <template>
   <div class="wrapper_side w-100">
     <transition name="slide-fade">
-      <div v-if="!statusInnerSideMenu">
+      <div
+        class="col-switch-mob width-min indx-max"
+        v-if="!statusInnerSideMenu"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="26"
@@ -18,7 +21,10 @@
           />
         </svg>
       </div>
-      <div v-else class="u-custom-menu u-nav-container-collapse w-100 h-100">
+      <div
+        v-else
+        class="indx-max u-custom-menu u-nav-container-collapse w-100 h-100"
+      >
         <div class="w-100 fix">
           <div class="u-menu-close mt-3">
             <svg
@@ -27,7 +33,7 @@
               width="28"
               height="28"
               fill="gainsboro"
-              class="bi bi-x-lg"
+              class="bi bi-x-lg indx-max c-white"
               viewBox="0 0 16 16"
               @click="changeStatusInnerSideMenu()"
             >
@@ -43,7 +49,11 @@
           </div>
 
           <ul class="u-align-center">
-            <li v-for="nav in navigator" :key="nav.value" class="u-nav-item">
+            <li
+              v-for="nav in navigator"
+              :key="nav.value"
+              class="u-nav-item indx-max"
+            >
               <a
                 class="u-button-style u-nav-link active"
                 href="#"

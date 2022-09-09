@@ -186,6 +186,10 @@
     width: max-content !important;
 }
 
+.indx-max {
+    z-index: 999999 !important;
+}
+
 .w-img, .w-img-mobile {
     width: 80%;
     height: 350px;
@@ -294,6 +298,10 @@
 }
 
 /* Services orGoods */
+.mar-t-5 {
+    margin-top: 4rem;
+}
+
 .space-between-letters {
     letter-spacing: 1rem;
 }
@@ -308,8 +316,22 @@
     position: absolute;
 }
 
+.col-switch-mob {
+    flex: 0 0 auto;
+    width: 25%;
+    position: fixed;
+}
+
 .top-switch {
+    top: 675px;
+}
+
+.top-switch-mob {
     top: 15px;
+}
+
+.side-switch {
+    left: 0%;
 }
 
 .inx-9999 {
@@ -340,7 +362,7 @@
 }
 
 .pad-mob-top {
-    padding-top: 40px;
+    padding-top: 100px;
 }
 
 /* SideNavigator */
