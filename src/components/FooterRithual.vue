@@ -79,7 +79,7 @@
         </div>
         <div>
           <a
-            href="https://www.djangoproject.com/"
+            href="#"
             class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
           >
             <svg
@@ -97,7 +97,7 @@
             </svg>
           </a>
           <a
-            href="https://vuejs.org/"
+            href="#"
             class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
           >
             <svg
@@ -115,7 +115,7 @@
             </svg>
           </a>
           <a
-            href="https://getbootstrap.com/"
+            href="#"
             class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
           >
             <svg
@@ -135,7 +135,7 @@
             </svg>
           </a>
           <a
-            href="https://www.linkedin.com/in/володимир-савін-5a02b3168"
+            href="#"
             class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
           >
             VovaSavin
