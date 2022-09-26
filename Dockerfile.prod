@@ -1,13 +1,8 @@
-FROM node:16.15.1
-
+FROM node:16.15.1 as build
 WORKDIR /app
-
 ENV PATH /app/node_modules/.bin:$PATH
-
 COPY package.json /app/package.json
-RUN npm install
-
+RUN npm install --silent
+RUN npm install -g @vue/cli
 COPY . /app
-
-# start app
-CMD npm run serve
+RUN npm run build
