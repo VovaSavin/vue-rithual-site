@@ -336,7 +336,7 @@ export default {
 }
 
 .change_position {
-  top: 55%;
+  top: 300px;
   z-index: 998;
   font-size: 52px;
 }
@@ -389,7 +389,7 @@ export default {
   vertical-align: baseline;
 }
 .low_display_head_img {
-  height: 110% !important;
+  height: 100% !important;
   position: absolute;
   top: 0px;
   z-index: 333;

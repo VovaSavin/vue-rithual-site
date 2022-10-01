@@ -1,6 +1,6 @@
 <template>
   <div class="h-max">
-    <div v-if="ifLoad">
+    <div class="col-not-reverse" v-if="ifLoad">
       <HeaderRithual :valueNav="navValue" />
 
       <div class="w-100 bg_gray_gradient pt-3 mb-5">
