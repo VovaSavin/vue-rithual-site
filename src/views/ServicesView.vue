@@ -65,8 +65,8 @@
             <div
               class="carousel-item height-500 mt-5"
               :class="{
-                active: service.id == someNumber,
-                '': service.id != someNumber,
+                active: service.id == rithualServices[0].id,
+                '': service.id != rithualServices[0].id,
               }"
             >
               <div class="w-100 h-100">

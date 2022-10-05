@@ -69,8 +69,8 @@
             <div
               class="carousel-item height-500 mt-5"
               :class="{
-                active: good.id == someNumber,
-                '': good.id != someNumber,
+                active: good.id == rithualGoods[0].id,
+                '': good.id != rithualGoods[0].id,
               }"
             >
               <div class="w-100 h-100">

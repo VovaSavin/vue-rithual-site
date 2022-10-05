@@ -1,5 +1,6 @@
 <template>
   <div class="h-max">
+    {{ifLoad}}
     <div class="col-not-reverse" v-if="ifLoad">
       <HeaderRithual :valueNav="navValue" />
 
