@@ -1,10 +1,9 @@
 <template>
   <div class="h-max">
-    {{ifLoad}}
     <div class="col-not-reverse" v-if="ifLoad">
       <HeaderRithual :valueNav="navValue" />
 
-      <div class="w-100 bg_gray_gradient pt-3 mb-5">
+      <div class="w-100 bg_gray_gradient pt-3">
         <div v-for="img in mainImg" :key="img.id">
           <div v-if="img.display_on" class="bg_block_reverse_double pb-5">
             <div
@@ -15,11 +14,9 @@
                 'f-bold f-italic': img.font === 'ЖК',
               }"
             >
-              <hr />
               <blockquote class="pb-5 pt-5">
                 {{ img.description_site }}
               </blockquote>
-              <hr />
             </div>
           </div>
           <div>
@@ -38,7 +35,6 @@
           </div>
         </div>
       </div>
-      <hr />
       <FooterRithual />
     </div>
     <div v-else>

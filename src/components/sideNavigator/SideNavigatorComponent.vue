@@ -2,7 +2,7 @@
   <div class="wrapper_side w-100">
     <transition name="slide-fade">
       <div
-        class="col-switch-mob width-min indx-max"
+        class="col-switch-mob indx-max width-min"
         v-if="!statusInnerSideMenu"
       >
         <svg
@@ -23,7 +23,7 @@
       </div>
       <div
         v-else
-        class="indx-max u-custom-menu u-nav-container-collapse w-100 h-100"
+        class="indx-max-1 u-custom-menu u-nav-container-collapse w-100 h-100"
       >
         <div class="w-100 fix">
           <div class="u-menu-close mt-3">
@@ -33,7 +33,7 @@
               width="28"
               height="28"
               fill="gainsboro"
-              class="bi bi-x-lg indx-max c-white"
+              class="bi bi-x-lg indx-max-1 c-white"
               viewBox="0 0 16 16"
               @click="changeStatusInnerSideMenu()"
             >

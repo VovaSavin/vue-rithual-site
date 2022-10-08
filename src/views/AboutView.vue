@@ -77,7 +77,7 @@
       <div v-for="w in we" :key="w.id" class="col">
         <div class="col-6 w-100" :class="{ 'align-self-end ': w.id % 2 == 0 }">
           <div class="col w-100 m-auto desc_picture" v-if="w.id % 2 != 0">
-            <div class="row w-100 desc_picture_inner mt-4">
+            <div class="row w-100 desc_picture_inner mt-4 pad-r-0-imp">
               <div class="mb-3 text-center">
                 <b class="bigger-text">
                   {{ w.name }}
@@ -96,7 +96,7 @@
                 </p>
               </div>
             </div>
-            <div class="parent-for-img-mobile outer-img">
+            <div class="parent-for-img-mobile outer-img pb-3">
               <img
                 class="w-img-mobile shadow-dr m-2 border-15"
                 :src="w.picture"
@@ -124,7 +124,7 @@
                 </p>
               </div>
             </div>
-            <div class="parent-for-img-mobile outer-img">
+            <div class="parent-for-img-mobile outer-img pb-2">
               <img
                 class="w-img-mobile shadow-dr m-2 border-15"
                 :src="w.picture"

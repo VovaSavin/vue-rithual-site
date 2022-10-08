@@ -10,7 +10,13 @@
     height: min-content;
 }
 
+.pad-r-0-imp {
+    padding-right: 0 !important;
+}
 
+.mar-r-0-imp {
+    margin-right: 0 !important;
+}
 
 .marg-for-head {
     margin-left: auto;
@@ -89,7 +95,7 @@
 }
 
 .bg_gray_gradient_prod_mobile {
-    background: linear-gradient(#f0f0f0, #bbbbbb) !important;
+    background: linear-gradient(#efedf0, #ccc9c9) !important;
 }
 
 .bg_gray_gradient_once_about {
@@ -97,7 +103,7 @@
 }
 
 .bg_block {
-    background: linear-gradient(rgb(253, 253, 253), #544f5a);
+    background: linear-gradient(rgb(253, 253, 253), #cbc8c8);
 }
 
 .bg_block_reverse {
@@ -187,7 +193,11 @@
 }
 
 .indx-max {
-    z-index: 999999 !important;
+    z-index: 10000 !important;
+}
+
+.indx-max-1 {
+    z-index: 10001 !important;
 }
 
 .w-img, .w-img-mobile {
@@ -298,6 +308,15 @@
 }
 
 /* Services orGoods */
+.bg-for-name-page {
+    background-color: #efedf0;
+}
+
+.hat_for_mobile_stick {
+    position: fixed;
+    background-color: whitesmoke;
+}
+
 .mar-t-5 {
     margin-top: 4rem;
 }
@@ -308,6 +327,10 @@
 
 .space-between-letters-06 {
     letter-spacing: .4rem;
+}
+
+.position_rel {
+    position: relative !important;
 }
 
 .col-switch {
@@ -362,13 +385,12 @@
 }
 
 .pad-mob-top {
-    padding-top: 100px;
+    padding-top: 85px;
 }
 
 /* SideNavigator */
 
 .under-side-border {
-    margin: 1rem;
     color: inherit;
     border: 0;
     border-top-color: currentcolor;
@@ -379,6 +401,10 @@
 }
 
 /* HEADER */
+.shadow-header-bottom {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.33) !important;
+}
+
 .pos_fix,
 .pos_fix_contact {
     position: fixed;

@@ -2,9 +2,17 @@
   <div id="goods_vue" class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
     <div class="bg_gray_gradient_prod_mobile pad-mob-top w-100">
-      <div class="row row justify-content-end name_page">
+      <div
+        class="
+          row row
+          justify-content-end
+          name_page
+          mar-r-0-imp
+          bg-for-name-page
+        "
+      >
         <div
-          class="pt-4 col-6 col-switch w-100"
+          class="pt-4 col-6 col-switch w-100 position_rel pad-r-0-imp"
           :class="{ 'inx-9999': !rowOrCol }"
         >
           <h5>
@@ -14,7 +22,7 @@
           </h5>
         </div>
         <div
-          class="col-switch inx-9999"
+          class="col-switch indx-max"
           :class="{
             'top-switch col-switch': !ifChangeWidth,
             'top-switch-mob col-switch-mob': ifChangeWidth,
@@ -27,7 +35,7 @@
         </div>
       </div>
       <!-- <div :class="{ row: !rowOrCol, 'my-col': rowOrCol }"> -->
-      <div v-if="rowOrCol" class="my-col mar-t-5">
+      <div v-if="rowOrCol" class="my-col">
         <div
           v-for="good in rithualGoods"
           :key="good.id"
@@ -67,7 +75,7 @@
         <div class="carousel-inner height-500">
           <div v-for="good in rithualGoods" :key="good.id">
             <div
-              class="carousel-item height-500 mt-5"
+              class="carousel-item height-500"
               :class="{
                 active: good.id == rithualGoods[0].id,
                 '': good.id != rithualGoods[0].id,

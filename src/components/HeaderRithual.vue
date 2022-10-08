@@ -1,6 +1,9 @@
 <template>
   <div class="h-100">
-    <div v-if="statusSideMenu">
+    <div
+      v-if="statusSideMenu"
+      class="hat_for_mobile_stick w-100 indx-max shadow-header-bottom"
+    >
       <SideNavigatorComponent
         :checkSideMenu="showSideMenu"
         :innerSideStatus="statusSideMenu"
