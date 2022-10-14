@@ -90,7 +90,7 @@ export default {
     },
     chooseData() {
       // Choose getter detatil data for goods or service
-      window.scrollTo(0, 500);
+      window.scrollTo(0, 650);
       if (this.dataDetail) {
         return this.dataDetail;
       } else {
