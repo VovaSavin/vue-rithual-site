@@ -15,7 +15,7 @@
         <ContactsView :whoParent="headerComp" />
         <div class="under-side-border"></div>
         <header
-          class="pos_fix d-flex justify-content-center py-3 w-100 bg_white"
+          class="pos_fix d-flex justify-content-center py-3 w-100 bg_white shadow-header-bottom"
         >
           <ul class="nav_t stick_follow">
             <li
