@@ -1,7 +1,10 @@
 <template>
   <div id="bg_gradient" class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
-    <div v-if="!statusColOrRow" class="bg_gray_gradient_once_about pt-5 w-100">
+    <div
+      v-if="!statusColOrRow"
+      class="bg_gray_gradient_once_about pad-top-about w-100"
+    >
       <div class="pt-5 mb-5 name_page">
         <h4>
           <b class="space-between-letters f-decor">

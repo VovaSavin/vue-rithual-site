@@ -111,10 +111,7 @@
 }
 
 .bg_block_reverse_double {
-    background: linear-gradient(rgb(238, 236, 236),
-            #dcd8e0 40%,
-            #ccc9cf 50%,
-            #dcd8e0 60%, rgb(253, 253, 253));
+    background: linear-gradient(rgb(232, 227, 227), #f6f3f9 40%, #cbc8ce 50%, #dcd8e0 60%, rgb(253, 253, 253));
 }
 
 .back-gr {
@@ -388,6 +385,10 @@
     padding-top: 85px;
 }
 
+.pad-top-about {
+    padding-top: 150px;
+}
+
 /* SideNavigator */
 
 .under-side-border {
@@ -423,5 +424,9 @@
 
 .margin-3 {
     margin: 1rem;
-    margin-top: 80px;
+    margin-top: 6rem;
 }
+
+/* TOLLTIP */
+
+/* TOLLTIP */

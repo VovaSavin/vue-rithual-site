@@ -2,15 +2,25 @@
   <div class="bg_gray_gradient">
     <HeaderRithual :valueNav="navValue" />
 
-    <div class="w-100">
-      <div class="pos_desc_abs_detail c-white name_page" v-if="!statusSideMenu">
+    <div class="w-100 pt-4">
+      <!-- <div class="pos_desc_abs_detail c-white name_page" v-if="!statusSideMenu">
         <span class="f-decor">
           <h1 class="pointer name_hover">
             {{ chooseData().name }}
           </h1>
         </span>
-      </div>
+      </div> -->
       <div class="margin-3">
+        <div
+          class="pos_desc_abs_detail c-white name_page"
+          v-if="!statusSideMenu"
+        >
+          <span class="f-decor">
+            <h1 class="pointer name_hover">
+              {{ chooseData().name }}
+            </h1>
+          </span>
+        </div>
         <img
           height="350"
           :src="chooseData().picture"
@@ -21,7 +31,7 @@
       <div class="m-3">
         <div class="" v-html="chooseData().description"></div>
       </div>
-      <section class="prices">
+      <section class="pb-3 prices">
         <div class="my-container">
           <div class="row m-0">
             <div class="prices-table">

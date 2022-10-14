@@ -79,7 +79,7 @@
         </div>
         <div>
           <a
-            href="#"
+            href="https://www.djangoproject.com"
             class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
           >
             <svg
@@ -97,7 +97,7 @@
             </svg>
           </a>
           <a
-            href="#"
+            href="https://vuejs.org/"
             class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
           >
             <svg
@@ -115,7 +115,7 @@
             </svg>
           </a>
           <a
-            href="#"
+            href="https://getbootstrap.com/"
             class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1"
           >
             <svg
@@ -143,6 +143,9 @@
         </div>
       </div>
     </footer>
+    <div>
+      <button>Hold me</button>
+    </div>
   </div>
 </template>
 
